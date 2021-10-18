@@ -1,0 +1,101 @@
+*{
+	margin:0 ;
+	padding: 0;
+}
+
+li {
+	list-style: none;
+}
+a {
+	text-decoration: none;
+}
+.clearfix::before,
+.clearfix::after {
+	content: "";
+	display: table;
+	visibility: hidden;
+}
+.clearfix {
+	clear: both;
+}
+.banners {
+	position: relative;
+	width: 500px;
+	height:500px;
+	border: 1px solid red;
+	margin: 0 auto;
+	/* overflow: hidden; */
+}
+.arr_l,
+.arr_r {
+	display: none;
+	position:absolute;
+	top: 50%;
+	transform: translate(0, -50%);
+	width: 30px;
+	height: 50px;
+	line-height: 50px;
+	border: 1px solid blue;
+	font-size: 25px;
+	text-align: center;
+	
+}
+.arr_l {
+	border-top-right-radius: 0.625rem;
+	border-bottom-right-radius: 10px;
+	z-index: 123;
+}
+.arr_r {
+	right:0;
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+}
+.slideshow ul {
+	position:absolute;
+	width: 400%;
+	height: auto;
+}
+.slideshow li {
+	float: left;
+	width: 500px;
+	height: 500px;
+	border: 1px dotted black;
+	border-right:0;
+	text-align: center;		/* put it in parent box*/
+}
+
+.slideshow>ul a {
+	line-height: 500px;
+}
+.focus {
+	position: absolute;
+	width: 100px;
+	height: 20px;
+	top: 90%;
+	left:50%;
+	
+	 /* parent box to be with absolute POSITION*/
+	
+}
+/* .focus>ol {
+	display:flex;
+	flex-direction: row;
+} */
+.focus>ol>li {
+	float: left;
+	width: 10px;
+	height: 10px;
+	margin: 0 5px;
+	border-radius: 50%;
+	border: 1px solid orange;
+	cursor: pointer;
+	
+	/* background-color: greenyellow;	 */
+
+}
+.focus .current{
+	background-color: greenyellow;
+}
+	
+	
+
