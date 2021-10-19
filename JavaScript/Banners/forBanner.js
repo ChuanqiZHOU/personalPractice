@@ -4,6 +4,8 @@ window.addEventListener('load', function() {
 	var arr_r = document.querySelector('.arr_r');
 	var banner = document.querySelector('.banners');
 	var bannerwidth = banner.offsetWidth;
+	var num = 0;
+	var circle = 0;
 	banner.addEventListener('mouseenter', function() {
 		arr_l.style.display = 'block';
 		arr_r.style.display = 'block';
@@ -11,10 +13,15 @@ window.addEventListener('load', function() {
 		arr_l.style.zIndex = '123';
 		arr_r.style.cursor = 'pointer';
 		arr_l.style.cursor = 'pointer';
+		clearInterval(timer);
+		timer = null;
 	})
 	banner.addEventListener('mouseleave', function() {
 		arr_l.style.display = 'none';
 		arr_r.style.display = 'none';
+		timer = setInterval(function(){
+			arr_r.click();
+		}, 2000);
 	})
 	
 	//dynamic to produce the focus circle
@@ -40,19 +47,68 @@ window.addEventListener('load', function() {
 				}
 			this.className = 'current';
 		var index = this.getAttribute('index');
-		
-		
+		num = index;  // use num to control arr's index
+		circle = index; // use circle to control focus-circle index
 		animate(ul, -index*bannerwidth);
 		})
 		
 	}
+	//clondNode() to add slide 1 , must be wirte after focus-circle
+	var firstUlLi = ul.children[0].cloneNode(true);
+	ul.appendChild(firstUlLi);
+	
 	// arr_r click event
-	var num = 0;
+	var flag = true; // useing flag to control the speed for animate function
+	arr_r.addEventListener('click', function(){
+		if (flag) {
+			flag = false;
+			if(num== ul.children.length-1){
+				ul.style.left = 0;
+				num = 0;
+			}
+			num++;
+			circle++;
+			animate(ul, -num*bannerwidth, function(){ 		// using call back to control animate function
+				flag = true;
+			});	
+			if(circle == ol.children.length){
+				circle = 0;
+			}
+			circleChange();
+			
+		}
+	});
+	// arr_left click event
 	arr_l.addEventListener('click', function(){
-		num++
-		
-		animate(ul, -num*bannerwidth);	
-		
+		if (flag) {
+			flag = false;
+			if(num== 0){
+				num = ul.children.length-1;
+				ul.style.left = -num* bannerwidth + 'px';
+				
+			}
+			num--;
+			circle--;
+			animate(ul, -num*bannerwidth,function(){
+				flag = true;
+			});	
+			if(circle < 0){					//when click the first postion, circl will be minus number
+				circle = ol.children.length-1;
+			}
+			circleChange();
+		}
 		
 	});
+	
+	function circleChange() {
+		for(var i = 0; i < ol.children.length; i++){
+			ol.children[i].className = "";
+		}
+		ol.children[circle].className = "current";
+	}
+	// automacic banner equals to arr_r click
+	var timer = setInterval(function(){
+		arr_r.click();
+	}, 2000);
+	
 })

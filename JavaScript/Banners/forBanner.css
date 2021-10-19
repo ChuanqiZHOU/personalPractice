@@ -24,7 +24,7 @@ a {
 	height:500px;
 	border: 1px solid red;
 	margin: 0 auto;
-	/* overflow: hidden; */
+	overflow: hidden;
 }
 .arr_l,
 .arr_r {
@@ -52,7 +52,7 @@ a {
 }
 .slideshow ul {
 	position:absolute;
-	width: 400%;
+	width: 800%;
 	height: auto;
 }
 .slideshow li {
