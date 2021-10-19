@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport"
+			content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+<link href="forSlideshow.css" rel="stylesheet"  />
+		<link rel="stylesheet" type="text/css" href="./swiper-bundle.min.css" />
+		
+		<script src="./swiper-bundle.min.js" type="text/javascript" charset="utf-8"></script>
+
+	</head>
+
+	<body>
+		<div class="slideshow">
+			<div class="swiper mySwiper">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide mySwiper-slide">Slide 1</div>
+					<div class="swiper-slide mySwiper-slide">Slide 2</div>
+					<div class="swiper-slide mySwiper-slide">Slide 3</div>
+					<div class="swiper-slide mySwiper-slide">Slide 4</div>
+					<div class="swiper-slide mySwiper-slide">Slide 5</div>
+					<div class="swiper-slide mySwiper-slide">Slide 6</div>
+					<div class="swiper-slide mySwiper-slide">Slide 7</div>
+					<div class="swiper-slide mySwiper-slide">Slide 8</div>
+					<div class="swiper-slide mySwiper-slide">Slide 9</div>
+				</div>
+				<div class="swiper-button-next"></div>
+			      <div class="swiper-button-prev"></div>
+			      <div class="swiper-pagination"></div>
+			</div> 
+		</div>
+		<script>
+		      var myswiper = new Swiper(".mySwiper", {
+		        slidesPerView: 1,
+		        spaceBetween: 30,
+		        loop: true,
+				//grabCursor: true, // cursor changes to hand
+				//mousewheel: true,    //-----------------wheel control
+									//----------------autoplay part start
+				// autoplay: {							
+				//           delay: 2500,
+				//           disableOnInteraction: false,
+				//         },		
+									//--------------autoplay part end
+		        pagination: {
+		          el: ".swiper-pagination",
+		          clickable: true,
+				  // dynamicBullets: true,  //----------dynammicBullets automatic
+				
+		        },
+		        navigation: {
+		          nextEl: ".swiper-button-next",
+		          prevEl: ".swiper-button-prev",
+		        },
+		      });
+		    </script>
+	</body>
+
+</html>
