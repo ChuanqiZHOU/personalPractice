@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>SurveyForm</title>
+		<link rel="stylesheet" type="text/css" href="./surveyform.css"/>
+		
+	</head>
+	<body>
+		<header>
+		<div id="title">
+			<h1>A new Survey</h1>
+			<p id="discription">This a personal survey for new person, who wants to join us</p>
+		</div>
+		</header>
+		<div id="container">
+			<form  id="survey-form">
+				<div class="item">
+				<label id="name-label" for="name">Name</label>
+				<input type="text" class="input_con" id="name" value=""  placeholder="Enter your name"/>	
+				</div>
+				<div class="item">
+				<label id="email-label" for="email">Email</label>
+				<input type="email" class="input_con" id="email" value="" placeholder="Enter your email"/>	
+				</div>
+				<div class="item">
+				<label id="number-label" for="number">Age(between 1 and 100)</label>
+				<input type="number" class="input_con" id="number" value="" min="1" max="100" placeholder="Age"/>
+				</div>
+				<div class="item">
+				<label><p>What is your visa style?</p></label>
+				<select name="visa" id="dropdown" class="input_con">
+					<option value="">Student visa</option>
+					<option value="">Work visa</option>
+					<option value="">Resident visa</option>
+					<option value="">Citizen</option>
+				</select>	
+				</div>
+				<div class="item">
+				<label><p> What is your gender?</p></label>
+				<label for=""><input type="radio" name="gender" id="" value="" /> Male</label>
+				<label for=""><input type="radio" name="gender" id="" value="" /> Female</label>
+				<label for=""><input type="radio" name="gender" id="" value="" /> Other</label>
+				</div>
+				<div class="item">
+				<label><p>What is your hobbies?</p></label>
+				<label for=""><input type="checkbox" name="" id="" value="Football" />Football</label>
+				<label for=""><input type="checkbox" name="" id="" value="Baseball" />Baseball</label>
+				<label for=""><input type="checkbox" name="" id="" value="Basketball" />Basketball</label>
+				<label for=""><input type="checkbox" name="" id="" value="Volleyball" />Volleyball</label>
+				<label for=""><input type="checkbox" name="" id="" value="Golf" />Golf</label>
+				<label for=""><input type="checkbox" name="" id="" value="Other" />Other</label>	
+				</div>
+				<div class="item">
+				<label><p>What is the other information you can provide?</p></label>
+				<textarea rows="" cols=""></textarea>	
+				</div>
+				<button type="submit" name="" id="submit" value="" >Submit</button>	
+				
+				
+				
+				
+			</form>
+			
+		</div>
+		
+	</body>
+</html>
