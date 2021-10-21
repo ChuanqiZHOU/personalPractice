@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>TechnicalDocument</title>
+	</head>
+	<body>
+		<nav id="nav-bar">
+			<header>Java Document</header>
+			<ul>
+				<li><a class="nav-link" href="#First_Java_Program" >First Java Program</a></li>
+				<li><a class="nav-link" href="#Basic_Syntax">Basic Syntax</a></li>
+				<li><a class="nav-link" href="#Java_Identifiers">Java Identifiers</a></li>
+				<li><a class="nav-link" href="#Java_Modifiers">Java Modifiers</a></li>
+				<li><a class="nav-link" href="#Java_Variables">Java Variables</a></li>
+				<li><a class="nav-link" href="#Java_Enums">Java Enums</a></li>
+				<li><a class="nav-link" href="#Comments_in_Java">Comments in Java</a></li>
+				<li><a class="nav-link" href="#What_is_Next">What is Next?</a></li>
+				
+			</ul>
+		</nav>
+		<main id="main-doc">
+			<section class="main-section" id="First_Java_Program">
+				<header>First Java Program</header>
+				<p>Let us look at a simple code that will print the words <i>Hello World</i>.</p>
+				<h4>Example</h4>
+				<code>public class MyFirstJavaProgram {
+
+					/* This is my first java program.
+					* This will print 'Hello World' as the output
+					*/
+
+					public static void main(String []args) {
+					System.out.println("Hello World"); // prints Hello World
+					}
+					}</code>
+				<h4>Output</h4>
+				<code>C:\> javac MyFirstJavaProgram.java
+					C:\> java MyFirstJavaProgram
+					Hello World</code>
+			</section>
+			<section class="main-section" id="Basic_Syntax">
+				<header>Basic Syntax</header>
+				<p>Let's look at how to save the file, compile, and run the program. Please follow the subsequent steps
+					−</p>
+				<ul>
+					<li>Open notepad and add the code as above.</li>
+					<li>Save the file as: MyFirstJavaProgram.java.</li>
+					<li>Open a command prompt window and go to the directory where you saved the class. Assume it's C:\.
+					</li>
+					<li>Type 'javac MyFirstJavaProgram.java' and press enter to compile your code. If there are no
+						errors in your code, the command prompt will take you to the next line (Assumption : The path
+						variable is set).</li>
+					<li>Now, type ' java MyFirstJavaProgram ' to run your program.</li>
+				</ul>
+			</section>
+			<section class="main-section" id="Java_Identifiers">
+				<header>Java Identifiers</header>
+				<p>All Java components require names. Names used for classes, variables, and methods are called
+					identifiers.</p>
+				<p>In Java, there are several points to remember about identifiers. They are as follows −</p>
+				<ul>
+					<li>All identifiers should begin with a letter (A to Z or a to z), currency character ($) or an
+						underscore (_).</li>
+					<li>After the first character, identifiers can have any combination of characters.</li>
+					<li>A key word cannot be used as an identifier.</li>
+					<li>Most importantly, identifiers are case sensitive.</li>
+					<li>Examples of illegal identifiers: 123abc, -salary.</li>
+				</ul>
+			</section>
+			<section class="main-section" id="Java_Modifiers">
+				<header>Java Modifiers</header>
+				<p>Like other languages, it is possible to modify classes, methods, etc., by using modifiers. There are
+					two categories of modifiers −</p>
+				<ul>
+					<li>Access Modifiers − default, public , protected, private</li>
+					<li>Non-access Modifiers − final, abstract, strictfp</li>
+				</ul>
+				<p>We will be looking into more details about modifiers in the next section.</p>
+			</section>
+			<section class="main-section" id="Java_Variables">
+				<header>Java Variables</header>
+				<p>Following are the types of variables in Java −</p>
+				<ul>
+					<li>Local Variables</li>
+					<li>Class Variables (Static Variables)</li>
+					<li>Instance Variables (Non-static Variables)</li>
+				</ul>
+			</section>
+
+			<section class="main-section" id="Java_Enums">
+				<header>Java Enums</header>
+				<p>Enums were introduced in Java 5.0. Enums restrict a variable to have one of only a few predefined
+					values. The values in this enumerated list are called enums.
+
+					With the use of enums it is possible to reduce the number of bugs in your code.</p>
+				<p>For example, if we consider an application for a fresh juice shop, it would be possible to restrict
+					the glass size to small, medium, and large. This would make sure that it would not allow anyone to
+					order any size other than small, medium, or large.</p>
+				<h4>Example</h4>
+				<code>class FreshJuice {
+					enum FreshJuiceSize{ SMALL, MEDIUM, LARGE }
+					FreshJuiceSize size;
+					}
+
+					public class FreshJuiceTest {
+
+					public static void main(String args[]) {
+					FreshJuice juice = new FreshJuice();
+					juice.size = FreshJuice.FreshJuiceSize.MEDIUM ;
+					System.out.println("Size: " + juice.size);
+					}
+					}</code>
+				<h4>Output</h4>
+				<code>Size: MEDIUM</code>
+			</section>
+			<section class="main-section" id="Comments_in_Java">
+				<header>Comments in Java</header>
+				<p>Java supports single-line and multi-line comments very similar to C and C++. All characters available
+					inside any comment are ignored by Java compiler.</p>
+				<h4>Example</h4>
+				<code>public class MyFirstJavaProgram {
+
+					/* This is my first java program.
+					* This will print 'Hello World' as the output
+					* This is an example of multi-line comments.
+					*/
+
+					public static void main(String []args) {
+					// This is an example of single line comment
+					/* This is also an example of single line comment. */
+					System.out.println("Hello World");
+					}
+					}</code>
+				<h4>Output</h4>
+				<code>Hello World</code>
+			</section>
+			<section class="main-section" id="What_is_Next">
+				<header>What is Next?</header>
+				<p>The next section explains about Objects and classes in Java programming. At the end of the session,
+					you will be able to get a clear picture as to what are objects and what are classes in Java.</p>
+			</section>
+
+		</main>
+
+	</body>
+</html>
