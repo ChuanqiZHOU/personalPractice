@@ -3,6 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<title>TechnicalDocument</title>
+		<link rel="stylesheet" type="text/css" href="./technicalDocument.css"/>
 	</head>
 	<body>
 		<nav id="nav-bar">
@@ -24,7 +25,7 @@
 				<header>First Java Program</header>
 				<p>Let us look at a simple code that will print the words <i>Hello World</i>.</p>
 				<h4>Example</h4>
-				<code>public class MyFirstJavaProgram {
+				<div class="divcode"><code>public class MyFirstJavaProgram {
 
 					/* This is my first java program.
 					* This will print 'Hello World' as the output
@@ -33,11 +34,11 @@
 					public static void main(String []args) {
 					System.out.println("Hello World"); // prints Hello World
 					}
-					}</code>
+					}</code></div>
 				<h4>Output</h4>
-				<code>C:\> javac MyFirstJavaProgram.java
+				<div class="divcode"><code>C:\> javac MyFirstJavaProgram.java
 					C:\> java MyFirstJavaProgram
-					Hello World</code>
+					Hello World</code></div>
 			</section>
 			<section class="main-section" id="Basic_Syntax">
 				<header>Basic Syntax</header>
@@ -98,7 +99,7 @@
 					the glass size to small, medium, and large. This would make sure that it would not allow anyone to
 					order any size other than small, medium, or large.</p>
 				<h4>Example</h4>
-				<code>class FreshJuice {
+				<div class="divcode"><code>class FreshJuice {
 					enum FreshJuiceSize{ SMALL, MEDIUM, LARGE }
 					FreshJuiceSize size;
 					}
@@ -110,16 +111,16 @@
 					juice.size = FreshJuice.FreshJuiceSize.MEDIUM ;
 					System.out.println("Size: " + juice.size);
 					}
-					}</code>
+					}</code></div>
 				<h4>Output</h4>
-				<code>Size: MEDIUM</code>
+				<div class="divcode"><code>Size: MEDIUM</code></div>
 			</section>
 			<section class="main-section" id="Comments_in_Java">
 				<header>Comments in Java</header>
 				<p>Java supports single-line and multi-line comments very similar to C and C++. All characters available
 					inside any comment are ignored by Java compiler.</p>
 				<h4>Example</h4>
-				<code>public class MyFirstJavaProgram {
+				<div class="divcode"><code>public class MyFirstJavaProgram {
 
 					/* This is my first java program.
 					* This will print 'Hello World' as the output
@@ -131,9 +132,9 @@
 					/* This is also an example of single line comment. */
 					System.out.println("Hello World");
 					}
-					}</code>
+					}</code></div>
 				<h4>Output</h4>
-				<code>Hello World</code>
+				<div class="divcode"><code>Hello World</code></div>
 			</section>
 			<section class="main-section" id="What_is_Next">
 				<header>What is Next?</header>

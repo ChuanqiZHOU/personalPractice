@@ -1,0 +1,107 @@
+@import url("https://fonts.googleapis.com/css?family=Modak");
+
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+@media screen and (max-width: 50rem){
+	nav .logo {
+		display: none;
+	}
+	
+}
+
+body {
+	background-color: ghostwhite;
+	margin: 0 3.125rem;
+}
+
+li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+	color: #3F007F;
+}
+nav {
+	position: fixed;
+	top:0;
+	left:0;
+	display:flex;
+	width: 100%;
+	height: 3.125rem;
+	margin: 0.625rem 3.125rem;
+	
+}
+
+
+
+nav img {
+	height:3.125rem;
+	background-color: ghostwhite;
+}
+nav ul {
+	display:flex;
+	width: 70%;
+	justify-content: space-around;
+	align-items: center;
+}
+
+nav ul>li a {
+	
+	font-size: 1.25rem;
+	font-weight: 700;
+}
+
+section {
+	margin-top: 4.375rem;
+	height: 100vh;
+	background-image: url(https://akm-img-a-in.tosshub.com/indiatoday/images/story/201706/web-development-647_062317054646.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	border: 1px solid ghostwhite;
+	border-radius: 0.625rem;
+}
+
+#welcome-section h1 {
+	position: relative;
+	top:70%;
+	transform: translateY(-50%);
+	height: 2.5rem;
+	text-align: center;
+	font-size: 4.375rem;
+	font-weight: 400;
+	font-family: "Modak";
+	font-style: italic;
+	color: #3F007F;
+	
+}
+#projects {
+	margin-top: 1.25rem;
+}
+
+.project-title {
+	font-size:2rem;
+	font-weight: 700;
+	color: #3F007F;
+}
+
+#project-container {
+	width: 100%;
+	background-color: white;
+	border: 1px solid ghostwhite;
+	border-radius: 0.625rem;
+	
+}
+
+#project1 {
+	margin: 5rem;
+	width: 30%;
+	height: 100vh;
+	background-image: url(https://assets.justinmind.com/wp-content/uploads/2020/02/website-background-design-guide-300x192.png);
+	border: white;
+	border-radius: 1.25rem;
+}
