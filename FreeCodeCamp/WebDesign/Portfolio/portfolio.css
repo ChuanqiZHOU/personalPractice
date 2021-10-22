@@ -80,16 +80,19 @@ section {
 	
 }
 #projects {
-	margin-top: 1.25rem;
+	margin: 5rem auto;
 }
 
 .project-title {
+	margin-top: 5rem;
 	font-size:2rem;
 	font-weight: 700;
 	color: #3F007F;
 }
 
 #project-container {
+	display: flex;
+	justify-content: space-around;
 	width: 100%;
 	background-color: white;
 	border: 1px solid ghostwhite;
@@ -98,10 +101,31 @@ section {
 }
 
 #project1 {
+	display:flex;
+	align-items: center;justify-content: center;
 	margin: 5rem;
 	width: 30%;
 	height: 100vh;
 	background-image: url(https://assets.justinmind.com/wp-content/uploads/2020/02/website-background-design-guide-300x192.png);
 	border: white;
 	border-radius: 1.25rem;
+}
+#project1 a,
+#project2 a {
+	color: white;
+	font-size: 1.875rem;
+	font-weight: 400;
+	font-family: arial;
+}
+
+#project2 {
+	display:flex;
+	align-items: center;justify-content: center;
+	margin: 5rem;
+	width: 30%;
+	height: 100vh;
+	background-color: #808080;
+	border: white;
+	border-radius: 1.25rem;
+	
 }
