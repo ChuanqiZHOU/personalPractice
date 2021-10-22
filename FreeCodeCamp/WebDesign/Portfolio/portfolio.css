@@ -83,29 +83,38 @@ section {
 	margin: 5rem auto;
 }
 
-.project-title {
+.project-title,
+.skills-title,
+.contact-title {
 	margin-top: 5rem;
 	font-size:2rem;
 	font-weight: 700;
 	color: #3F007F;
 }
 
-#project-container {
+#project-container,
+#skills-container {
 	display: flex;
 	justify-content: space-around;
+	align-items: center;
 	width: 100%;
-	background-color: white;
+	height: 100vh;
+	background-color: lightgray;
 	border: 1px solid ghostwhite;
-	border-radius: 0.625rem;
+	border-radius: 0.625rem;	
 	
+}
+
+#skills-container {
+	background-color: lightcyan;
 }
 
 #project1 {
 	display:flex;
 	align-items: center;justify-content: center;
-	margin: 5rem;
+	/* margin: 2rem; */
 	width: 30%;
-	height: 100vh;
+	height: 80%;
 	background-image: url(https://assets.justinmind.com/wp-content/uploads/2020/02/website-background-design-guide-300x192.png);
 	border: white;
 	border-radius: 1.25rem;
@@ -121,9 +130,9 @@ section {
 #project2 {
 	display:flex;
 	align-items: center;justify-content: center;
-	margin: 5rem;
+	
 	width: 30%;
-	height: 100vh;
+	height: 80%;
 	background-color: #808080;
 	border: white;
 	border-radius: 1.25rem;
