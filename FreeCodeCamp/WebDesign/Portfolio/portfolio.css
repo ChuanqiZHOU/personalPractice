@@ -7,14 +7,21 @@
 	box-sizing: border-box;
 }
 @media screen and (max-width: 50rem){
-	nav .logo {
+	nav .logo,
+	#welcome-section,
+	#projects #project2,
+	#contact-container p{
 		display: none;
 	}
 	
+	
+}
+.bodycolor {
+	background-color: ghostwhite;
 }
 
-body {
-	background-color: ghostwhite;
+main {
+	
 	margin: 0 3.125rem;
 }
 
@@ -26,7 +33,7 @@ a {
 	text-decoration: none;
 	color: #3F007F;
 }
-nav {
+#nav-bar {
 	position: fixed;
 	top:0;
 	left:0;
@@ -52,8 +59,9 @@ nav ul {
 
 nav ul>li a {
 	
-	font-size: 1.25rem;
+	font-size: 2.25rem;
 	font-weight: 700;
+	color: #3F007F;
 }
 
 section {
@@ -106,7 +114,10 @@ section {
 }
 
 #skills-container {
+	flex-wrap: wrap;
+	align-content: center;
 	background-color: lightcyan;
+	
 }
 
 #project1 {
@@ -136,5 +147,39 @@ section {
 	background-color: #808080;
 	border: white;
 	border-radius: 1.25rem;
+	
+}
+
+.skill-detail {
+	width: 40%;
+	height: 30%;
+}
+#contact-container {
+	
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		flex-wrap: wrap;
+		width: 100%;
+		height: 100vh;
+		background-color: lightgray;
+		border: 1px solid ghostwhite;
+		border-radius: 0.625rem;	
+		
+	
+}
+
+#contact-container form {
+	font-size: 2.5rem;
+}
+
+#contact-container p {
+	text-align: center;
+	height: 4.25rem;
+	line-height: 4.25rem;
+	font-size: 2.25rem;
+	font-weight: 400;
+	font-family: "Modak";
+	color: #3F007F;
 	
 }

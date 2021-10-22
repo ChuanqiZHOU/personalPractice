@@ -4,50 +4,129 @@
 		<meta charset="utf-8">
 		<title></title>
 		<link rel="stylesheet" href="./portfolio.css">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+			integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css"
+			integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
+			integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous">
+		</script>
 	</head>
-	<body>
-		<nav id="nav-bar">
-			<!-- /must be fixed on the top and must use media query. -->
-			<span class="logo"><img
-					src="https://www.clipartmax.com/png/full/71-711801_transparent-background-telephone-icon.png"></span>
-			<ul>
-				<li><a href="https://www.freecodecamp.org/fccf86190f2-b246-45f1-84eb-45020f7dcf78">About</a></li>
-				<li><a href="#projects">Projects</a></li>
-				<li><a href="#skills">Skills</a></li>
-				<li><a href="#contact">Contact</a></li>
-			</ul>
-		</nav>
-		<section id="welcome-section">
-			<!-- // must use 100vh -->
-			<h1>Welcome to my homepage</h1>
-			</div>
-		</section>
-		<div id="projects">
-			<p class="project-title">Projects</p>
-			<div id="project-container">
-				<div id="project1">
-					<a href="https://github.com/ChuanqiZHOU">Personal Homepage</a> <!-- //link to a prject -->
+	<body class="bodycolor">
+		<main>
+			<nav id="nav-bar">
+				<!-- /must be fixed on the top and must use media query. -->
+				<span class="logo"><img
+						src="https://www.clipartmax.com/png/full/71-711801_transparent-background-telephone-icon.png"></span>
+				<ul>
+					<li><a href="https://www.freecodecamp.org/fccf86190f2-b246-45f1-84eb-45020f7dcf78">About</a></li>
+					<li><a href="#projects">Projects</a></li>
+					<li><a href="#skills">Skills</a></li>
+					<li><a href="#contact">Contact</a></li>
+				</ul>
+			</nav>
+			<section id="welcome-section">
+				<!-- // must use 100vh -->
+				<h1>Welcome to my homepage</h1>
 				</div>
-				<div id="project2">
-					<a href="#">Coming soon!</a>
+			</section>
+			<div id="projects">
+				<p class="project-title">Projects</p>
+				<div id="project-container">
+					<div id="project1">
+						<a href="https://github.com/ChuanqiZHOU">Personal Homepage</a> <!-- //link to a prject -->
+					</div>
+					<div id="project2">
+						<a href="#">Coming soon!</a>
+					</div>
 				</div>
 			</div>
-		</div>
-		<div id="skills">
-			<p class="skills-title">Skills</p>
-			<div id="skills-container">
-				
-			</div>
+			<div id="skills">
+				<p class="skills-title">Skills</p>
+				<div id="skills-container">
+					<div class="skill-detail skill1">
+						<p>xHTML/HTML</p>
+						<div class="progress">
+							<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0"
+								aria-valuemax="100" style="width: 95%;">
+								95%
+							</div>
+						</div>
+					</div>
+					<div class="skill-detail skill2">
+						<p>CSS/CSS3</p>
+						<div class="progress">
+							<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0"
+								aria-valuemax="100" style="width: 90%;">
+								90%
+							</div>
+						</div>
+					</div>
 
-		</div>
-		<div id="contact">
-			<p class="contact-title">Contact</p>
-			<div id="contact-container">
-				
+					<div class="skill-detail skill3">
+						<p>JavaScript</p>
+						<div class="progress">
+							<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0"
+								aria-valuemax="100" style="width: 85%;">
+								85%
+							</div>
+						</div>
+					</div>
+					<div class="skill-detail skill4">
+						<p>MySQL</p>
+						<div class="progress">
+							<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0"
+								aria-valuemax="100" style="width: 85%;">
+								85%
+							</div>
+						</div>
+					</div>
+					<div class="skill-detail skill5">
+						<p>Node</p>
+						<div class="progress">
+							<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0"
+								aria-valuemax="100" style="width: 80%;">
+								80%
+							</div>
+						</div>
+					</div>
+					<div class="skill-detail skill6">
+						<p>Java</p>
+						<div class="progress">
+							<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0"
+								aria-valuemax="100" style="width: 80%;">
+								80%
+							</div>
+						</div>
+					</div>
+				</div>
+
 			</div>
-			
-		
-		
-		</div>
+			<div id="contact">
+				<p class="contact-title">Contact</p>
+				<div id="contact-container">
+					<p>If my portfolio is feeling good for your attention, would you like to contact us by
+					 submit the following information. Our group will give a response quickly!!!
+					 </p>
+					<form role="form">
+						<div class="form-group">
+							<label for="name">Name</label>
+							<input type="text" class="form-control" id="name" placeholder="name">
+						</div>
+						<div class="form-group">
+							<label for="email">Email</label>
+							<input type="email" id="email" placeholder="Enter your email adress">
+
+						</div>
+
+						<button type="submit" class="btn btn-default">Submit</button>
+					</form>
+
+				</div>
+
+
+
+			</div>
+		</main>
 	</body>
 </html>
