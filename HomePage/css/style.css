@@ -129,44 +129,78 @@ a {
 	width: 100%;
 	height: 100vh;
 	background-color: #E9F1FF;
+	padding-top: 1.125rem;;
 	
 }
 
 #skill #skill-container {
-	display: flex;
-	justify-content: space-between;
+	/* display: flex; */
+	/* justify-content: space-between; */
+	/* flex-wrap: wrap;
+	align-items: stretch; */
 	width: 78vw;
 	height: 100vh;
 	margin-left:11vw;
-}
-
-#skill #skill-left {
-	width: 50%;
-	height: 100%;
-	
-}
-
-#skill #skill-right {
-	width: 50%;
-	height: 100%;
-	background-color: lightgoldenrodyellow;
-}
-
-#skill #skills-detail-left {
-	width: 100%;
-	height: 50%;
-	
-	background-color: lightpink;
+	/* margin-top: 3.125rem; */
 }
 
 #skill .skills-discription {
-	width: 100%;
+	float: left;
+	width: 50%;
 	height: 50%;
 }
 
-.sub-skill-title {
-	
+.sub-skill-title {	
 	color: #2C657D;
+}
+
+#skill .skill-detail{
+	float: left;
+	width: 50%;
+	height: 25%;
+	/* background-color: yellow; */
+}
+
+.skill-detail-title {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	height: 50%;
+	/* border: 1px solid red; */
+}
+.skill-detail-title span {
+	margin: 2% 10%;
+	font-size: 1rem;
+	font-weight: 500;
+	font-family: Poppins;
+	color: #212529;
+}
+.skill-detail-progress {
+	width: 80%;
+	height: 10%;
+	margin: 0 10%;
+	border-radius: 0.625rem;
+	background-color: #000000;
+}
+.solid-skill, 
+.solid-skill-html {
+	float: left;
+	width: 90%;
+	height: 100%;
 	
-	
+	border-radius: 0.625rem;
+	background-color: #2C657D;
+}
+
+.solid-skill-js,
+.solid-skill-jquery {
+	width: 85%;
+}
+
+
+.solid-skill-node,
+.solid-skill-wp,
+.solid-skill-java-shell {
+	width: 70%;
 }
