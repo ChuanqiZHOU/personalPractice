@@ -193,9 +193,10 @@ a {
 	background-color: #2C657D;
 }
 
-.solid-skill-js,
-.solid-skill-jquery {
+#skill .solid-skill-js,
+#skill .solid-skill-jquery {
 	width: 85%;
+	transition: all 1.3s linear;
 }
 
 

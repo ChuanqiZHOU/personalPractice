@@ -1,0 +1,18 @@
+.box {
+	display: inline-flex;
+	flex-wrap: wrap;
+	align-content: stretch;
+	width: 50rem;
+	height: 50rem;
+	background-color: lightpink;
+}
+.box .mBox {
+	width: 25rem;
+	height: 25rem;
+	background-color: lightgreen;
+}
+.sBox1 {
+	width: 25rem;
+	height:6.25rem;
+	background-color: blue;
+}

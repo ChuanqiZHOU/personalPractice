@@ -1,0 +1,29 @@
+body {
+	margin: 0;
+	padding:0;
+	box-sizing: border-box;
+}
+li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+.nav {
+	
+	top:0;
+	left:8vw;
+	width: 84vw;
+	height: 3.125rem;
+	background-color: lightgoldenrodyellow;
+}
+
+.nav .fa-bars,
+.nav .fa-times,
+.nav1 .fa-bars,
+.nav1 .fa-times {
+	font-size: 2rem;
+	font-weight: 600;
+}
