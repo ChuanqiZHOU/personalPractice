@@ -1,4 +1,5 @@
 window.onload= function(){
+	// nav bar js part
 	let navBar = document.querySelector(".nav-bar");
 	let faBars = document.querySelector(".fa-bars-cursor");
 	let navLastSpanI = document.querySelector('.nav span:last-child i');
@@ -22,5 +23,19 @@ window.onload= function(){
 			flag = true;
 		}	
 	});
+	// swiper button js for display
+	let swiperButtonL = document.querySelector(".swiper-button-l");
+	let swiperButtonR = document.querySelector(".swiper-button-r");
+	let slideShow = document.querySelector(".slideshow");
 	
+	slideShow.addEventListener('mouseenter', function(){
+		swiperButtonL.style.display = "block";
+		swiperButtonR.style.display = "block";
+		
+	});
+	slideShow.addEventListener('mouseleave', function(){
+		swiperButtonL.style.display = "none";
+		swiperButtonR.style.display = "none";
+		
+	});
 }

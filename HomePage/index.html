@@ -3,6 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Bil ZHOU's Homepage</title>
+		<link rel="shortcut icon" href="./favicon.ico">
 		<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 		<link rel="stylesheet" type="text/css" href="./css/style.css" />
 		<script src="https://kit.fontawesome.com/19f9ecae7c.js" crossorigin="anonymous"></script>
@@ -17,8 +18,8 @@
 					<li><a href="#about">About</a></li>
 					<li><a href="#skill">Skill</a></li>
 					<li><a href="#portfolio">Portfolio</a></li>
-					<li><a href="#">Experiences</a></li>
-					<li><a href="#">Education</a></li>
+					<li><a href="#experiences">Experiences</a></li>
+					<li><a href="#education">Education</a></li>
 					<li><a href="#">Contact</a></li>
 				</ul>
 			</span>
@@ -116,7 +117,7 @@
 		</div>
 
 		<div id="portfolio">
-			<p class="portfolio-title">portfolio</p>
+			<p class="portfolio-title">Portfolio</p>
 			<p class="sub-portfolio-title">My Works</p>
 			<div class="slideshow">
 				<div class="swiper mySwiper">
@@ -146,9 +147,9 @@
 							</div>
 						</div>
 					</div>
-					<div class="swiper-button-next"></div>
-					<div class="swiper-button-prev"></div>
-					
+					<div class="swiper-button-next swiper-button-l"></div>
+					<div class="swiper-button-prev swiper-button-r"></div>
+
 				</div>
 			</div>
 			<script>
@@ -159,10 +160,11 @@
 					grabCursor: true, // cursor changes to hand
 					mousewheel: true, //-----------------wheel control
 					//----------------autoplay part start
-					autoplay: {							
-					          delay: 3000,
-					          disableOnInteraction: false,
-					         },		
+					autoplay: {
+						delay: 5000,
+						disableOnInteraction: false,
+						pauseOnMouseEnter: true,
+					},
 					//--------------autoplay part end
 					navigation: {
 						nextEl: ".swiper-button-next",
@@ -172,8 +174,61 @@
 			</script>
 
 		</div>
-		<div id="experiences">Experiences</div>
-		<div id="education">Education</div>
+		<div id="experiences">
+			<div class="experience-container">
+				<p class="experience-title">Experiences</p>
+				<p class="sub-experience-title">working period</p>
+				<div class="expert">
+					<div class="exper-box">
+						<div class="year">2021.4-Current</div>
+						<div class="job-position">Freelancer(New Zealand)</div>
+						<div class="role-discrib"> Website optimization | Web development and maintainance</div>
+					</div>
+					<div class="exper-box">
+						<div class="year">2021.2-2021.4</div>
+						<div class="company">Indevin Ltd(New Zealand)<br>Lab Technician</div>
+						<div class="role-discrib"> Data collection | Statistical analytics | Microsoft 365 maintanance | Trouble shooting for records
+						</div>
+					</div>
+					<div class="exper-box">
+						<div class="year">2009.7-2019.7</div>
+						<div class="company">Hebei University(China)<br>Assistant Professor</div>
+						<div class="role-discrib">Website updating | Linux teaching | Hardware maintaining | Software installing and uninstalling | Trouble shooting for general using | Customer Q&A
+						
+						
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="education">
+			<div class="education-container">
+				<p class="education-title">Education</p>
+				<p class="sub-education-title">Quanlification and Certification</p>
+				<div class="quanli-certi">
+					<div class="quanlicerli-box">
+						<div class="year-q">2020.2-2020.11</div>
+						<div class="subject">Post-Study Diploma in Information Technology <br>(Level8)</div>
+						<div class="institute"> Southern Institute of Technology(New Zealand)</div>
+					</div>
+					<div class="quanlicerli-box">
+						<div class="year-q">1998.9-2002.7</div>
+						<div class="subject">Bioengineering <br>(Level7)</div>
+						<div class="institute"> Harbin Normal University(China)
+						</div>
+					</div>
+					<div class="quanlicerli-box">
+						<div class="year-q">2000</div>
+						<div class="subject-company">Microsoft Certified System Engineer</div>
+						<div class="cer-link">https://sdfsafd		
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			
+			
+			Education</div>
 		<div id="contact">Contact</div>
 
 
