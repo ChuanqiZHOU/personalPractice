@@ -3,8 +3,10 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Bil ZHOU's Homepage</title>
+		<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 		<link rel="stylesheet" type="text/css" href="./css/style.css" />
 		<script src="https://kit.fontawesome.com/19f9ecae7c.js" crossorigin="anonymous"></script>
+		<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 		<script src="./js/index.js"></script>
 	</head>
 	<body>
@@ -28,8 +30,8 @@
 				<p class="name">Bill ZHOU</p>
 				<p class="job-title">Passionate Developer <br>In New Zealand</p>
 				<p class="role">I am a freelancer</p>
-				<p class="role">I am a  growth web developer</p>
-				
+				<p class="role">I am a growth web developer</p>
+
 				<!-- <p> Here is my discription</p> -->
 				<span class="tech-img"><img src="./imgs/1.png"></span>
 			</div>
@@ -45,8 +47,8 @@
 				<div class="skills-discription">
 					<p class="skill-title">Skills</p>
 					<p class="sub-skill-title">Porgraming Skills</p>
-					<p class= "role">The new generation programing languages
-					make strong creative and analytical skills </p>
+					<p class="role">The new generation programing languages
+						make strong creative and analytical skills </p>
 				</div>
 
 				<div class="skill-detail">
@@ -109,11 +111,66 @@
 						</div>
 					</div>
 				</div>
-				
+
 			</div>
 		</div>
-		<div id="portfolio">portfolio
 		
+		<div id="portfolio">
+			<p class="portfolio-title">portfolio</p>  
+			 <p class="sub-portfolio-title">My Works</p>
+				<div class="slideshow">
+					<div class="swiper mySwiper">
+						<div class="swiper-wrapper myswiper-wrapper">
+							<div class="swiper-slide mySwiper-slide">
+								<div class="mySwiper-slide-frame mcmd-slide">
+									<div class="slide-cover">
+										<a class="mcmd-link slide-discription" href="./MCMD/index.html" target="_blank">Website Optimization</a>
+									</div>
+								</div>
+								</div>
+							<div class="swiper-slide mySwiper-slide">
+								<div class="mySwiper-slide-frame android-dev-slide">
+									<div class="slide-cover">
+										<a class="slide-discription" href="https://play.google.com/sto
+										re/apps/details?id=com.emw_calculator&hl
+										=en&gl=US">Android App Development</a>
+									</div>
+								</div>
+								</div>
+							<div class="swiper-slide mySwiper-slide">
+								<div class="mySwiper-slide-frame">
+									<div class="slide-cover">
+										<a class="slide-discription">Coming soon!!!!</a>
+									</div>
+								</div>
+								</div>
+							
+						</div>
+						<div class="swiper-button-next"></div>
+					      <div class="swiper-button-prev"></div>
+					      <div class="swiper-pagination"></div>
+					</div> 
+				</div>
+				<script>
+				      var myswiper = new Swiper(".mySwiper", {
+				        slidesPerView: 3,
+				        spaceBetween: 30,
+				        loop: true,
+						grabCursor: true, // cursor changes to hand
+						mousewheel: true,    //-----------------wheel control
+											//----------------autoplay part start
+						// autoplay: {							
+						//           delay: 3000,
+					 //           disableOnInteraction: false,
+						//          },		
+											//--------------autoplay part end
+				        navigation: {
+				          nextEl: ".swiper-button-next",
+				          prevEl: ".swiper-button-prev",
+				        },
+				      });
+				    </script>
+				
 		</div>
 		<div id="experiences">Experiences</div>
 		<div id="education">Education</div>

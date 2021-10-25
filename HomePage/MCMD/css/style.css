@@ -1,0 +1,427 @@
+/* common */
+
+* {
+	padding: 0px;
+	margin: 0px;
+}
+
+a {
+	text-decoration: none;
+}
+
+.clearfix:before,
+.clearfix:after {
+	content: "";
+	display: table;
+}
+
+.clearfix:after {
+	clear: both;
+}
+
+img {
+	vertical-align: middle;
+}
+
+ul {
+	list-style: none;
+}
+
+body {
+	/* height: 3000px; */
+	background: url(../img/body.png) center top no-repeat;
+}
+
+/* head */
+
+.head,
+.header {
+	width: 1000px;
+	margin: 0 auto;
+}
+
+.logo img {
+	float: left;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+.head h4 {
+	float: left;
+	margin-top: 30px;
+	font-size: 25px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #008BD1;
+}
+
+/* nav */
+
+.nav {
+	width: 1000px;
+	margin: auto;
+	height: 40px;
+	background: #19499A;
+}
+
+.menu li {
+	float: left;
+	width: 90.9px;
+	text-align: center;
+}
+
+.menu li a {
+	height: 40px;
+	line-height: 40px;
+	font-size: 12px;
+	color: #fff;
+}
+
+.menu li:hover {
+	background: #8eca1c;
+	color: #fff;
+
+}
+
+.menu li {
+	position: relative;
+}
+
+.menu li ul {
+	display: none;
+	position: absolute;
+	z-index: 9;
+	top: 40px;
+	background-color: #fff;
+	opacity: 0.9;
+}
+
+.menu li ul a {
+	color: #333333;
+}
+
+.menu li:hover ul {
+	display: block;
+}
+
+.flash1 {
+	width: 1000px;
+	height: 253px;
+}
+
+.flash1 .flash1-pagi,
+.flash2 .flash2-pagi {
+	text-align: right;
+}
+.flash2 .flash2-pagi {
+		position: absolute;
+		bottom: 10px;
+		right: 5px;
+		width: auto !important;
+		left: auto !important;
+		margin: 0;
+}
+
+/* content */
+
+.content {
+	width: 1000px;
+	margin: 0 auto;
+	padding-top: 10px;
+	margin-bottom: 15px;
+
+}
+
+/* con-top */
+.content .con-top {
+	float: left;
+}
+
+/* content-login */
+.login {
+	float: left;
+	width: 300px;
+	border: 2px #19499A solid;
+	border-radius: 5px;
+	margin-top: 10px;
+}
+
+.login h3 {
+	margin-bottom: 35px;
+	margin-top: 10px;
+	line-height: 35px;
+	font-size: 18px;
+	text-align: center;
+	letter-spacing: 5px;
+}
+
+.login h4 {
+	margin-bottom: 35px;
+	font-size: 15px;
+	font-weight: normal;
+	text-align: center;
+}
+
+.login h4 span {
+	background: #19499A;
+	padding-left: 45px;
+	padding-right: 45px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-radius: 3px;
+}
+
+.login h4 a {
+	color: #fff;
+}
+
+.login p {
+	padding-left: 20px;
+	font-size: 14px;
+	text-decoration: underline;
+	margin-bottom: 20px;
+}
+
+.login p a {
+	color: #000;
+}
+
+.login p a:hover {
+	color: #f00;
+}
+
+/* content-news */
+
+.news,
+.notice,
+.ins-intro,
+.award {
+	float: left;
+	width: 382px;
+	height: auto;
+	margin-left: 25px;
+	overflow: hidden;
+}
+
+.notice,
+.contacts {
+	width: 305px;
+	margin-left: 0px;
+}
+
+.flash2 .swiper-pagination-bullet {
+	width: 10px;
+	height: 10px;
+	border-radius: 0px;
+	text-align: center;
+	line-height: 10px;
+	font-size: 2px;
+	color:white;
+	opacity: 1;
+	background-color: lightgrey;
+}
+
+.flash2 .swiper-pagination-bullet-active {
+	color:#fff;
+	background: #007aff;
+}
+
+.award {
+	width: 261px;
+	margin-left: 25px;
+}
+
+.contacts {
+	float: left;
+	height: 210px;
+}
+
+.news .news-t,
+.notice .notice-t,
+.ins-intro .ins-intro-t,
+.award .award-t,
+.contacts .contacts-t {
+	width: 100%;
+	height: 33px;
+	line-height: 33px;
+
+
+}
+
+.news .news-tt,
+.notice .notice-tt,
+.ins-intro .ins-intro-tt,
+.award .award-tt,
+.contacts .contacts-tt {
+	float: left;
+	width: 150px;
+	background: url(../img/h3bg.jpg) no-repeat left center;
+	/* padding-left: 15px; */
+	height: 33px;
+	line-height: 33px;
+	font-family: Arial;
+	font-size: 18px;
+	font-weight: bold;
+	padding-left: 25px;
+	color: #a8a5a5;
+}
+
+.news .news-t .more,
+.notice .notice-t .more,
+.ins-intro .ins-intro-t .more,
+.award .award-t .more,
+.contacts .contacts-t .more {
+	float: right;
+	font-family: Arial;
+	font-size: 14px;
+}
+
+.news .news-b,
+.notice .notice-b,
+.ins-intro .ins-intro-b,
+.award .award-b {
+	padding: 5px;
+	/* overflow: hidden; */
+}
+
+.award .award-b p {
+	width: 241px;
+	height: 146px;
+}
+
+.award .award-b p img {
+	width: 200px;
+	height: 131px;
+	padding: 15px;
+}
+
+.news .news-b ul li,
+.notice .notice-b ul li,
+.ins-intro .ins-intro-b ul li,
+.award .award-b ul li {
+	padding-left: 10px;
+	border-bottom: 1px #ddd dotted;
+	background: url(../img/li.png) left center no-repeat;
+	font-size: 12px;
+	line-height: 2.5em;
+
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.news-b li span {
+	float: right;
+	color: #9DA19F;
+}
+
+.news-b li a,
+.notice-b li a,
+.ins-intro-b li a,
+.award-b li a {
+	color: #000;
+
+}
+
+.instru-slides {
+	float: right;
+	width: 261px;
+	height: 210px;
+	border: 1px solid #CCC;
+	margin-top: 12px;
+}
+
+.instru-slides .swiper-container .swiper-wrapper img {
+	width: 261px;
+	height: 210px;
+}
+
+/* con-middle*/
+.con-middle {
+	height: 260px;
+
+}
+
+.contacts .contacts-b p {
+	padding-left: 5px;
+	margin-right: 10px;
+	font-size: 14px;
+	line-height: 30px;
+
+}
+
+.flash3show {
+	float: left;
+	width: 650px;
+	height: 210px;
+	margin-left: 25px;
+	border: 1px solid #D1D1D1;
+	padding: 10px 0px;
+	overflow: hidden;
+	
+}
+
+.swiper-container .swiper-wrapper {
+	transition-timing-function: linear !important;
+	-o-transition-timing-function: linear !important;
+	-webkit-transition-timing-function: linear !important;
+	
+
+}
+
+
+.flash3show .flash3 .flash3-slide {
+	float: left;
+	width: 150px;
+	height: 210px;
+	margin-left: 10px;
+}
+
+.flash3show .flash3 .slide-t {
+	width: 150px;
+	height: 170px;
+	border: 1px #CCC solid;
+}
+
+.flash3show .flash3 .slide-t img {
+	width: 140px;
+	height: 160px;
+	padding: 5px;
+}
+
+.flash3show .flash3 .flash3-slide-explain {
+	width: 150px;
+	height: 24px;
+	margin-top: 10px;
+	border: 1px #CCC solid;
+	text-align: center;
+	line-height: 24px;
+
+}
+
+.flash3show .flash3 p {
+	font-size: 12px;
+	color: #000;
+	text-decoration: none;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+/* foot */
+.foot {
+	
+	    margin: 0 auto;
+		margin-top: 50px;
+	    padding-top: 10px;
+	    padding-bottom: 10px;
+	    background-color: #19499A;
+	}
+.foot p {
+	font-size: 12px;
+	    line-height: 2.5em;
+	    text-align: center;
+		color: white;
+}
+.foot p a {
+	color: white;
+}
