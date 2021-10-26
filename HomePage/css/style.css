@@ -12,6 +12,8 @@ a {
 	text-decoration: none;
 }
 
+
+
 .nav {
 	position: fixed;
 	display: flex;
@@ -99,7 +101,8 @@ a {
 #skill .skill-title,
 .portfolio-title,
 .experience-title,
-.education-title {
+.education-title,
+.contact-title {
 	font-size: 1.75rem;
 	font-weight: 500;
 	font-family: Poppins;
@@ -109,7 +112,8 @@ a {
 .sub-skill-title,
 .sub-portfolio-title,
 .sub-experience-title,
-.sub-education-title {
+.sub-education-title,
+.sub-contact-title {
 		font-size: 2.5rem;
 		font-weight: 800;
 	    line-height: 1.4;
@@ -214,7 +218,8 @@ a {
 
 #portfolio,
 .experience-container,
-.education-container {
+.education-container,
+.contact-container {
 	width: 78vw;
 	height: 100vh;
 	margin-left:11vw;
@@ -222,6 +227,10 @@ a {
 }
 .experience-container {
 	margin-top: 0;
+}
+.contact-container {
+	margin-top: 0;
+	padding-top: 3.125rem ;
 }
 
 #portfolio .myswiper-wrapper {
@@ -336,4 +345,110 @@ a {
 	color: #828282;
 }
 
+#contact {
+	width: 100vw;
+	height: 100vh ;
+	background-color: #E9F1FF;
+}
+.contact-detail {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	height: 50%;
+	/* border: 1px solid blue; */
+}
+.contact-left {
+	width: 40%;
+	height:100%;
+	font-size: 1.25rem;
+	line-height: 2.55rem;
+}
 
+.contact-left .contact-location,
+.contact-left .contactemail {
+	display: flex;
+	justify-content: space-between;
+}
+
+.contact-right {
+	width: 50%;
+	height:100%;
+}
+
+.contact-right .contact-form {
+	width: 100%;
+	height: 100%;
+	
+	display:flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+.contact-form .items {
+	width: 100%;
+	height: 10%;
+	display: flex;
+	justify-content: space-between;
+}
+
+.contact-form .items .contact-name,
+.contact-form .items .contact-email,
+.contact-form .items .contact-phone {
+	width: 20%;
+	font-size: 1.25rem;
+}
+.contact-form .items input {
+	width: 70%;
+	outline: none;
+	border: 1px solid #E9F1FF;
+	border-radius: 0.625rem;
+	font-size: 1.25rem;
+}
+.contact-form .items-message {
+	width: 100%;
+	display:flex;
+	justify-content: space-between;
+	font-size: 1.25rem;
+}
+.contact-form .items-message .contact-message {
+	width: 20%;
+	font-size: 1.25rem;
+}
+.contact-form  .items-message .message-detail {
+	width: 70%;
+	height: 10vh;
+	outline: none;
+	border: 1px solid #E9F1FF;
+	border-radius: 0.625rem;
+	font-size: 1.25rem;
+}
+
+.reset-submit {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	height: 15%;
+	
+}
+.reset-btn {
+	width: 20%;
+	border: 1px solid #E9F1FF;
+	border-radius: 0.625rem;
+	background-color: darkgray;
+	font-size: 1.25rem;
+	font-family: Poppins;
+	
+}
+
+.submit-btn {
+	width: 70%;
+	border: 1px solid #E9F1FF;
+	border-radius: 0.625rem;
+	background-color: darkcyan;
+	font-size: 1.25rem;
+	font-family: Poppins;
+}
+.fa-map-marker-alt,
+.fa-envelope {
+	font-size: 2.0rem;
+}
