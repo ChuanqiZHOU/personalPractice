@@ -12,8 +12,6 @@ a {
 	text-decoration: none;
 }
 
-
-
 .nav {
 	position: fixed;
 	display: flex;
@@ -48,14 +46,29 @@ a {
 	font-size: 2rem;
 	font-weight: 600;
 }
-#about {
+#about,
+#skill,
+#portfolio,
+#experiences,
+#education,
+#contact {
+	width: 100vw;
+	height: 100vh;
+	margin-top: 3.125rem;
+}
+#about .about-container,
+#skill .skill-container,
+#portfolio .portfolio-container,
+#experiences .experience-container,
+#education .education-container,
+#contact .contact-container {
+	width: 78%;
+	height: 100%;
+	margin-left:11vw;
+}
+.about-container {
 	display: flex;
 	justify-content: space-between;
-	width: 78vw;
-	height: 100vh;
-	margin-left:11vw;
-	margin-top: 3.125rem;
-	/* background-color: gray;	 */
 }
 
 }
@@ -63,7 +76,6 @@ a {
 	display: flex;
 	width: 50%;
 	height: 100%;
-	background-color: darkred;
 }
 .about-right {
 	width: 50%;
@@ -137,21 +149,7 @@ a {
 }
 
 #skill {
-	width: 100%;
-	height: 100vh;
-	background-color: #E9F1FF;
-	padding-top: 3.125rem;
-	
-}
-#skill #skill-container {
-	/* display: flex; */
-	/* justify-content: space-between; */
-	/* flex-wrap: wrap;
-	align-items: stretch; */
-	width: 78vw;
-	height: 100vh;
-	margin-left:11vw;
-	/* margin-top: 3.125rem; */
+	background-color: #E9F1FF;	
 }
 
 #skill .skills-discription {
@@ -214,23 +212,6 @@ a {
 .solid-skill-wp,
 .solid-skill-java-shell {
 	width: 70%;
-}
-
-#portfolio,
-.experience-container,
-.education-container,
-.contact-container {
-	width: 78vw;
-	height: 100vh;
-	margin-left:11vw;
-	margin-top: 3.125rem;	
-}
-.experience-container {
-	margin-top: 0;
-}
-.contact-container {
-	margin-top: 0;
-	padding-top: 3.125rem ;
 }
 
 #portfolio .myswiper-wrapper {
@@ -301,10 +282,7 @@ a {
 }
 
 #experiences {
-	width: 100vw;
-	height: 100vh;
-	background-color: #E9F1FF;	
-	padding-top: 3.125rem;
+	background-color: #E9F1FF;		
 }
 .expert,
 .quanli-certi {
@@ -346,8 +324,6 @@ a {
 }
 
 #contact {
-	width: 100vw;
-	height: 100vh ;
 	background-color: #E9F1FF;
 }
 .contact-detail {

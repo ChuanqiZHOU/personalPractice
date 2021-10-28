@@ -26,25 +26,26 @@
 			<span><i class="fas fa-bars fa-bars-cursor"></i></span>
 		</div>
 		<div id="about">
+			<div class="about-container">
+				<div class="about-left">
+					<p class="name">Bill ZHOU</p>
+					<p class="job-title">Passionate Developer <br>In New Zealand</p>
+					<p class="role">I am a freelancer</p>
+					<p class="role">I am a growth web developer</p>
 
-			<div class="about-left">
-				<p class="name">Bill ZHOU</p>
-				<p class="job-title">Passionate Developer <br>In New Zealand</p>
-				<p class="role">I am a freelancer</p>
-				<p class="role">I am a growth web developer</p>
-
-				<!-- <p> Here is my discription</p> -->
-				<span class="tech-img"><img src="./imgs/1.png"></span>
-			</div>
-			<div class="about-right">
-				<div id="card-bottom">
+					<!-- <p> Here is my discription</p> -->
+					<span class="tech-img"><img src="./imgs/1.png"></span>
 				</div>
-				<div id="card-top">
+				<div class="about-right">
+					<div id="card-bottom">
+					</div>
+					<div id="card-top">
+					</div>
 				</div>
 			</div>
 		</div>
 		<div id="skill">
-			<div id="skill-container">
+			<div class="skill-container">
 				<div class="skills-discription">
 					<p class="skill-title">Skills</p>
 					<p class="sub-skill-title">Porgraming Skills</p>
@@ -117,62 +118,63 @@
 		</div>
 
 		<div id="portfolio">
-			<p class="portfolio-title">Portfolio</p>
-			<p class="sub-portfolio-title">My Works</p>
-			<div class="slideshow">
-				<div class="swiper mySwiper">
-					<div class="swiper-wrapper myswiper-wrapper">
-						<div class="swiper-slide mySwiper-slide">
-							<div class="mySwiper-slide-frame mcmd-slide">
-								<div class="slide-cover">
-									<a class="mcmd-link slide-discription" href="./MCMD/index.html"
-										target="_blank">Website Optimization</a>
+			<div class="portfolio-container">
+				<p class="portfolio-title">Portfolio</p>
+				<p class="sub-portfolio-title">My Works</p>
+				<div class="slideshow">
+					<div class="swiper mySwiper">
+						<div class="swiper-wrapper myswiper-wrapper">
+							<div class="swiper-slide mySwiper-slide">
+								<div class="mySwiper-slide-frame mcmd-slide">
+									<div class="slide-cover">
+										<a class="mcmd-link slide-discription" href="./MCMD/index.html"
+											target="_blank">Website Optimization</a>
+									</div>
 								</div>
 							</div>
-						</div>
-						<div class="swiper-slide mySwiper-slide">
-							<div class="mySwiper-slide-frame android-dev-slide">
-								<div class="slide-cover">
-									<a class="slide-discription" href="https://play.google.com/sto
+							<div class="swiper-slide mySwiper-slide">
+								<div class="mySwiper-slide-frame android-dev-slide">
+									<div class="slide-cover">
+										<a class="slide-discription" href="https://play.google.com/sto
 										re/apps/details?id=com.emw_calculator&hl
 										=en&gl=US">Android App Development</a>
+									</div>
+								</div>
+							</div>
+							<div class="swiper-slide mySwiper-slide">
+								<div class="mySwiper-slide-frame">
+									<div class="slide-cover">
+										<a class="slide-discription">Coming soon!!!!</a>
+									</div>
 								</div>
 							</div>
 						</div>
-						<div class="swiper-slide mySwiper-slide">
-							<div class="mySwiper-slide-frame">
-								<div class="slide-cover">
-									<a class="slide-discription">Coming soon!!!!</a>
-								</div>
-							</div>
-						</div>
+						<div class="swiper-button-next swiper-button-l"></div>
+						<div class="swiper-button-prev swiper-button-r"></div>
+
 					</div>
-					<div class="swiper-button-next swiper-button-l"></div>
-					<div class="swiper-button-prev swiper-button-r"></div>
-
 				</div>
+				<script>
+					var myswiper = new Swiper(".mySwiper", {
+						slidesPerView: 3,
+						spaceBetween: 30,
+						loop: true,
+						grabCursor: true, // cursor changes to hand
+						mousewheel: true, //-----------------wheel control
+						//----------------autoplay part start
+						autoplay: {
+							delay: 5000,
+							disableOnInteraction: false,
+							pauseOnMouseEnter: true,
+						},
+						//--------------autoplay part end
+						navigation: {
+							nextEl: ".swiper-button-next",
+							prevEl: ".swiper-button-prev",
+						},
+					});
+				</script>
 			</div>
-			<script>
-				var myswiper = new Swiper(".mySwiper", {
-					slidesPerView: 3,
-					spaceBetween: 30,
-					loop: true,
-					grabCursor: true, // cursor changes to hand
-					mousewheel: true, //-----------------wheel control
-					//----------------autoplay part start
-					autoplay: {
-						delay: 5000,
-						disableOnInteraction: false,
-						pauseOnMouseEnter: true,
-					},
-					//--------------autoplay part end
-					navigation: {
-						nextEl: ".swiper-button-next",
-						prevEl: ".swiper-button-prev",
-					},
-				});
-			</script>
-
 		</div>
 		<div id="experiences">
 			<div class="experience-container">
@@ -235,7 +237,7 @@
 				<div class="contact-detail">
 					<div class="contact-left">
 						<p>I am available for freelance work.<br>
-						Please send the emial or fill out the form on this section
+							Please send the emial or fill out the form on this section
 							to contact with me.</p>
 						<div class="contact-location">
 							<i class="fas fa-map-marker-alt"> </i> <span>Auckland, New Zealand</span>
@@ -243,14 +245,15 @@
 						<div class="contactemail">
 							<i class="fas fa-envelope"></i> <span>chuanqizhou@gmail.com</span>
 						</div>
-						<span class="social-meida"><i class="fab fa-linkedin"></i>LinkedIn</span> <span><i class="fab fa-facebook-square"></i>
-						Facebook</span> <span><i class="fab fa-github-square"></i>Github</span>
-						 <span><i class="fab fa-codepen"></i>Codepen</span>
+						<span class="social-meida"><i class="fab fa-linkedin"></i>LinkedIn</span> <span><i
+								class="fab fa-facebook-square"></i>
+							Facebook</span> <span><i class="fab fa-github-square"></i>Github</span>
+						<span><i class="fab fa-codepen"></i>Codepen</span>
 					</div>
 					<div class="contact-right">
 						<form action="" class="contact-form">
 							<div class="items">
-								<label class="contact-name" > Name</label>
+								<label class="contact-name"> Name</label>
 								<input type="text" class="name-detail" placeholder="Enter your name">
 							</div>
 							<div class="items">
@@ -259,16 +262,17 @@
 							</div>
 							<div class="items">
 								<label class="contact-phone"> Phone</label>
-								<input type="number" class="phone-detail" min="999999" max="33333333333" placeholder="Enter your phone number">
+								<input type="number" class="phone-detail" min="999999" max="33333333333"
+									placeholder="Enter your phone number">
 							</div>
 							<div class="items-message">
 								<label class="contact-message"> Message</label>
 								<textarea rows="" cols="" class="message-detail"></textarea>
 							</div>
 							<div class="reset-submit">
-								
-							<button type="reset" class="reset-btn">Reset</button>
-							<button type="submit" class="submit-btn">Submit</button>
+
+								<button type="reset" class="reset-btn">Reset</button>
+								<button type="submit" class="submit-btn">Submit</button>
 							</div>
 						</form>
 					</div>
