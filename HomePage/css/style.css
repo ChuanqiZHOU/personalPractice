@@ -214,6 +214,9 @@ a {
 	width: 70%;
 }
 
+.portfolio-container{
+	padding-top: 0.15rem;
+}
 #portfolio .myswiper-wrapper {
 	width: 70vw;
 	height: 80vh;
@@ -284,6 +287,11 @@ a {
 #experiences {
 	background-color: #E9F1FF;		
 }
+
+.experience-discription {
+	margin-top: 0;
+	padding-top: 0.15rem;
+}
 .expert,
 .quanli-certi {
 	width: 100%;
@@ -299,6 +307,10 @@ a {
 	height: 30%;
 	font-size: 1.25rem;
 	
+}
+
+.education-container {
+	padding-top:0.15rem;
 }
 .year {
 	width: 20%;
@@ -325,6 +337,9 @@ a {
 
 #contact {
 	background-color: #E9F1FF;
+}
+.contact-container {
+	padding-top: 0.15rem;
 }
 .contact-detail {
 	display: flex;
