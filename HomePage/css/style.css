@@ -219,7 +219,7 @@ a {
 }
 #portfolio .myswiper-wrapper {
 	width: 70vw;
-	height: 80vh;
+	height: 75vh;
 	
 }
 
@@ -299,8 +299,9 @@ a {
 	margin-top: 4.625rem;
 }
 .exper-box,
-.quanlicerli-box {
+#education .quanlicerli-box {
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: space-between;
 	text-align: left;
 	width: 100%;
@@ -333,6 +334,7 @@ a {
 .cer-link {
 	width: 50%;
 	color: #828282;
+	word-wrap: break-word;
 }
 
 #contact {
@@ -395,6 +397,11 @@ a {
 	border-radius: 0.625rem;
 	font-size: 1.25rem;
 }
+
+.contact-form input::-webkit-input-placeholder {
+        color: lightgrey;
+      }
+     
 .contact-form .items-message {
 	width: 100%;
 	display:flex;
