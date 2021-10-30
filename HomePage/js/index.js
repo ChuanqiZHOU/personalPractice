@@ -47,6 +47,11 @@ window.onload= function(){
 	var solidSkillJava = document.querySelector("#skill .solid-skill-java-shell");
 	var expert = document.querySelector("#experiences .expert");
 	
+	// var expertBoxs = document.querySelectorAll(".exper-box");
+	 
+		// console.log(expertBoxs);
+	
+	
 		
 	var skills = document.querySelector('#skill');
 	var skillTop = skills.offsetTop;

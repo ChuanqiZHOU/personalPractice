@@ -326,18 +326,18 @@ a {
 }
 
 #education .quali_level8 {
-	transition: all 0.7s ease-in-out;
-}
-
-#education .quali_level7 {
 	transition: all 1.0s ease-in-out;
 }
 
+#education .quali_level7 {
+	transition: all 2.0s ease-in-out;
+}
+
 #education .quali_micro {
-	transition: all 1.3s ease-in-out;
+	transition: all 3.0s ease-in-out;
 }
 #education .quanli_freecode {
-	transition: all 1.6s ease-in-out;
+	transition: all 4.0s ease-in-out;
 }
 
 

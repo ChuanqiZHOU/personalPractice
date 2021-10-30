@@ -1,0 +1,14 @@
+.father {
+	display: flex;
+	justify-content: space-between;
+	width: 31.25rem;
+	height: 6.25rem;
+	background-color: pink;
+	border: 0.0625rem solid black;
+}
+.son {
+	width: 7.5rem;
+	height: 6.25rem;
+	border: 0.0625rem solid red;
+	background-color:black;
+}
