@@ -38,4 +38,53 @@ window.onload= function(){
 		swiperButtonR.style.display = "none";
 		
 	});
+	// skill progress bar
+	var solidSkillHtml = document.querySelector('.solid-skill-html');
+	var solidSkillJs =  document.querySelector('#skill .solid-skill-js');
+	var solidSkillJquery = document.querySelector("#skill .solid-skill-jquery");
+	var solidSkillNode = document.querySelector("#skill .solid-skill-node");
+	var solidSkillWp = document.querySelector("#skill .solid-skill-wp");
+	var solidSkillJava = document.querySelector("#skill .solid-skill-java-shell");
+	var expert = document.querySelector("#experiences .expert");
+	
+		
+	var skills = document.querySelector('#skill');
+	var skillTop = skills.offsetTop;
+	
+	var experiences = document.querySelector('#experiences');
+	var experiTop = experiences.offsetTop;
+	
+	var education = document.querySelector("#education");
+	var eduTop = education.offsetTop;
+	var qualiLevel8 = document.querySelector(".quali_level8");
+	var qualiLevel7 = document.querySelector(".quali_level7");
+	var qualiMicro = document.querySelector(".quali_micro");
+	var qualiFreecode = document.querySelector(".quanli_freecode");
+	
+	
+	document.addEventListener("scroll", function(){
+		if(window.pageYOffset >= 0.5*skill.offsetTop)
+		{
+			solidSkillHtml.style.width = "90%";
+			solidSkillJs.style.width = "85%";
+			solidSkillJquery.style.width = "85%";
+			solidSkillNode.style.width = "80%"; 
+			solidSkillWp.style.width = "80%";
+			solidSkillJava.style.width = "80%";
+		}
+		if(window.pageYOffset >= experiTop)
+		{
+			expert.style.opacity = "1.0";
+		}
+		
+		if(window.pageYOffset >= eduTop) {
+			qualiLevel8.style.opacity = "1.0";
+			qualiLevel7.style.opacity = "1.0";
+			qualiMicro.style.opacity = "1.0";
+			qualiFreecode.style.opacity = "1.0";
+		}
+	});
+		
+		
+	
 }

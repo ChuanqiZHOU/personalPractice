@@ -41,6 +41,9 @@ a {
 	font-size: 1.150rem;
 	color: #000000;
 }
+.nav-bar ul li a:hover {
+	border-bottom: 0.2125rem solid #000000;
+}
 .nav .fa-bars,
 .nav .fa-times {
 	font-size: 2rem;
@@ -191,27 +194,27 @@ a {
 	border-radius: 0.625rem;
 	background-color: #000000;
 }
-.solid-skill, 
-.solid-skill-html {
-	float: left;
-	width: 90%;
+.solid-skill {
 	height: 100%;
-	
 	border-radius: 0.625rem;
 	background-color: #2C657D;
+	transition : width 3s ease-in-out;
+}
+.solid-skill-html {
+	width: 00%;
+	
 }
 
 #skill .solid-skill-js,
 #skill .solid-skill-jquery {
-	width: 85%;
-	transition: all 1.3s linear;
+	width: 0%;
 }
 
 
 .solid-skill-node,
 .solid-skill-wp,
 .solid-skill-java-shell {
-	width: 70%;
+	width: 00%;
 }
 
 .portfolio-container{
@@ -297,6 +300,12 @@ a {
 	width: 100%;
 	height: 60%;
 	margin-top: 4.625rem;
+	
+	
+}
+.expert {
+	opacity: 0;
+	transition: all 1.0s ease-in-out;
 }
 .exper-box,
 #education .quanlicerli-box {
@@ -307,12 +316,32 @@ a {
 	width: 100%;
 	height: 30%;
 	font-size: 1.25rem;
-	
 }
 
 .education-container {
 	padding-top:0.15rem;
 }
+#education .quanlicerli-box {
+	opacity: 0;
+}
+
+#education .quali_level8 {
+	transition: all 0.7s ease-in-out;
+}
+
+#education .quali_level7 {
+	transition: all 1.0s ease-in-out;
+}
+
+#education .quali_micro {
+	transition: all 1.3s ease-in-out;
+}
+#education .quanli_freecode {
+	transition: all 1.6s ease-in-out;
+}
+
+
+
 
 .year,
 .year-q {
