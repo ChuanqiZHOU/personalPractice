@@ -12,3 +12,32 @@
 	border: 0.0625rem solid red;
 	background-color:black;
 }
+
+.father .son {
+	opacity: 0;
+	
+}
+
+.father1 div:nth-child(1),
+.father2 div:nth-child(1),
+.father3 div:nth-child(1)
+{
+	transition: all 8s;
+	background-color: red;
+}
+
+.father1 div:nth-child(3),
+.father2 div:nth-child(3),
+.father3 div:nth-child(3)
+{
+	transition: all 30s;
+	background-color: green;
+}
+
+.father1 div:nth-child(2),
+.father2 div:nth-child(2),
+.father3 div:nth-child(2)
+{
+	
+	background-color: yellow;
+}

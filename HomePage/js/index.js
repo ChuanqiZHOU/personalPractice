@@ -45,28 +45,23 @@ window.onload= function(){
 	var solidSkillNode = document.querySelector("#skill .solid-skill-node");
 	var solidSkillWp = document.querySelector("#skill .solid-skill-wp");
 	var solidSkillJava = document.querySelector("#skill .solid-skill-java-shell");
-	var expert = document.querySelector("#experiences .expert");
 	
-	// var expertBoxs = document.querySelectorAll(".exper-box");
-	 
-		// console.log(expertBoxs);
-	
-	
-		
 	var skills = document.querySelector('#skill');
 	var skillTop = skills.offsetTop;
 	
-	var experiences = document.querySelector('#experiences');
-	var experiTop = experiences.offsetTop;
 	
+	//obtain DOM for experience animation
+	// var experiences = document.querySelector('#experiences');
+	var expert = document.querySelector("#experiences .expert");
+	var expertBox1 = document.querySelector(".expert-box1");
+	var expertBox2 = document.querySelector(".expert-box2");
+	var expertBox3 = document.querySelector(".expert-box3");
+	var experiTop = experiences.offsetTop;
+	// education animation
 	var education = document.querySelector("#education");
 	var eduTop = education.offsetTop;
-	var qualiLevel8 = document.querySelector(".quali_level8");
-	var qualiLevel7 = document.querySelector(".quali_level7");
-	var qualiMicro = document.querySelector(".quali_micro");
-	var qualiFreecode = document.querySelector(".quanli_freecode");
-	
-	
+	var qualicerliBoxs = document.querySelectorAll('.quanlicerli-box');
+	// document scroll event
 	document.addEventListener("scroll", function(){
 		if(window.pageYOffset >= 0.5*skill.offsetTop)
 		{
@@ -77,16 +72,20 @@ window.onload= function(){
 			solidSkillWp.style.width = "80%";
 			solidSkillJava.style.width = "80%";
 		}
+		// experience animatin
 		if(window.pageYOffset >= experiTop)
 		{
-			expert.style.opacity = "1.0";
+			expertBox1.style.opacity = "1.0";
+			expertBox2.style.opacity = "1.0";
+			expertBox3.style.opacity = "1.0";
 		}
-		
+		// education animation
 		if(window.pageYOffset >= eduTop) {
-			qualiLevel8.style.opacity = "1.0";
-			qualiLevel7.style.opacity = "1.0";
-			qualiMicro.style.opacity = "1.0";
-			qualiFreecode.style.opacity = "1.0";
+			for( let i = 0; i < qualicerliBoxs.length; i++){
+				for( let j = 0; j < qualicerliBoxs[i].children.length; j++){
+					qualicerliBoxs[i].children[j].style.opacity = "1.0";
+				}
+			}
 		}
 	});
 		

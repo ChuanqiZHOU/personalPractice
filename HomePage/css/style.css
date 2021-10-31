@@ -303,10 +303,22 @@ a {
 	
 	
 }
-.expert {
+/* .expert-box {
 	opacity: 0;
-	transition: all 1.0s ease-in-out;
+} */
+.expert-box1 {
+	opacity: 0;
+	transition: all 0.5s ease-in-out;
 }
+.expert-box2{
+	opacity: 0;
+	transition: all 2.5s ease-in-out;
+}
+.expert-box3 {
+	opacity: 0;
+	transition: all 4.5s ease-in-out;
+}
+
 .exper-box,
 #education .quanlicerli-box {
 	display: flex;
@@ -320,24 +332,6 @@ a {
 
 .education-container {
 	padding-top:0.15rem;
-}
-#education .quanlicerli-box {
-	opacity: 0;
-}
-
-#education .quali_level8 {
-	transition: all 1.0s ease-in-out;
-}
-
-#education .quali_level7 {
-	transition: all 2.0s ease-in-out;
-}
-
-#education .quali_micro {
-	transition: all 3.0s ease-in-out;
-}
-#education .quanli_freecode {
-	transition: all 4.0s ease-in-out;
 }
 
 
@@ -353,17 +347,68 @@ a {
 .subject,
 .subject-company {
 	text-align: left;
-	width: 30%;
-	
-	
+	width: 30%;	
 }
-.role-discrib,
-.institute, 
-.cer-link {
+.role-discrib{
 	width: 50%;
 	color: #828282;
 	word-wrap: break-word;
 }
+.institute, 
+.cer-link {
+	width: 50%;
+	color: blue;
+	word-wrap: break-word;
+}
+ /* education animation CSS */
+#education .year-q,
+#education .subject,
+#education .institute,
+#education .subject-company,
+#education .cer-link {
+	opacity: 0;
+}
+.year-q-1{
+	transition: all 0.5s linear;
+}
+.subject-1{
+	transition: all 1.0s linear;
+}
+.institute-1 {
+	transition: all 1.5s linear;
+}
+.year-q-2 {
+	transition: all 2.0s ease-in;
+}
+.subject-2 {
+	transition: all 2.5s ease-in;
+}
+.institute-2 {
+	transition: all 3.0s ease-in;
+}
+.year-q-3 {
+	transition: all 3.5s ease-in;
+}
+.subject-company-1 {
+	transition: all 4.0s ease-in;
+}
+.cer-link-1{
+	transition: all 4.5s ease-in;
+}
+.year-q-4 {
+	transition: all 5.0s ease-in;
+}
+.subject-company-2 {
+	transition: all 5.5s ease-in;
+}
+.cer-link-2 {
+	transition: all 6.0s linear;
+	
+}
+
+
+
+
 
 #contact {
 	background-color: #E9F1FF;
