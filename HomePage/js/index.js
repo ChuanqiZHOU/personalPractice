@@ -84,6 +84,8 @@ window.onload= function(){
 			for( let i = 0; i < qualicerliBoxs.length; i++){
 				for( let j = 0; j < qualicerliBoxs[i].children.length; j++){
 					qualicerliBoxs[i].children[j].style.opacity = "1.0";
+					qualicerliBoxs[i].children[j].style.marginLeft = "0rem";
+					qualicerliBoxs[i].children[j].style.marginRight = "0rem";
 				}
 			}
 		}

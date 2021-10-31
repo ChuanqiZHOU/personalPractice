@@ -367,42 +367,51 @@ a {
 #education .subject-company,
 #education .cer-link {
 	opacity: 0;
+	
 }
 .year-q-1{
-	transition: all 0.5s linear;
+	margin-left: -1.25rem;
+	transition: all 0.5s ease-in-out;
 }
 .subject-1{
-	transition: all 1.0s linear;
+	transition: all 1.0s ease-in-out;
 }
 .institute-1 {
-	transition: all 1.5s linear;
+	margin-right: -1.25rem;
+	transition: all 0.5s ease-in-out;
 }
 .year-q-2 {
-	transition: all 2.0s ease-in;
+	margin-left: -1.25rem;
+	transition: all 1.0s ease-in-out;
 }
 .subject-2 {
-	transition: all 2.5s ease-in;
+	transition: all 1.5s ease-in-out;
 }
 .institute-2 {
-	transition: all 3.0s ease-in;
+	margin-right: -1.25rem;
+	transition: all 1.0s ease-in-out;
 }
 .year-q-3 {
-	transition: all 3.5s ease-in;
+	margin-left: -1.25rem;
+	transition: all 1.5s ease-in-out;
 }
 .subject-company-1 {
-	transition: all 4.0s ease-in;
+	transition: all 2.0s ease-in-out;
 }
 .cer-link-1{
-	transition: all 4.5s ease-in;
+	margin-right: -1.25rem;
+	transition: all 1.5s ease-in-out;
 }
 .year-q-4 {
-	transition: all 5.0s ease-in;
+	margin-left: -1.25rem;
+	transition: all 2.0s ease-in-out;
 }
 .subject-company-2 {
-	transition: all 5.5s ease-in;
+	transition: all 2.5s ease-in-out;
 }
 .cer-link-2 {
-	transition: all 6.0s linear;
+	margin-right: -1.25rem;
+	transition: all 2.0s ease-in-out;
 	
 }
 
