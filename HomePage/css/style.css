@@ -139,16 +139,21 @@ a {
 .sub-experience-title {
 	color: #2C657D;
 }
-.role {
+.role{
 	font-size: 1.0625rem;
 	font-weight: 400;
 	line-height: 1.4;
 	font-family: Poppins;
 	color: #000;
 }
+.typedtext {
+	color: deeppink;
+	font-size: 1.25rem;
+}
 #about .tech-img img {
 	width: 70%;
 	height: 30%;
+	margin-top: 1.25rem;
 }
 
 #skill {

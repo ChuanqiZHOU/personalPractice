@@ -8,7 +8,8 @@
 		<link rel="stylesheet" type="text/css" href="./css/style.css" />
 		<script src="https://kit.fontawesome.com/19f9ecae7c.js" crossorigin="anonymous"></script>
 		<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
-		<script src="./js/index.js"></script>
+		<script src="./js/typed.js" type="application/javascript" charset="utf-8"></script>
+		<script type="module" src="./js/index.js" charset="utf-8"></script>
 	</head>
 	<body>
 		<div class="nav">
@@ -30,7 +31,18 @@
 				<div class="about-left">
 					<p class="name">Bill ZHOU</p>
 					<p class="job-title">Passionate Developer <br>In New Zealand</p>
-					<p class="role">I am a growth freelancer</p>
+					<p class="role">I am a growth <span class="typedtext"></span></p>
+					
+					<!-- <script type="module">
+						import Typed from './js/typed.js';
+						var typed = new Typed('#about .typedtext', {
+									  strings: ["Freelancer", "Web developer."],
+									  typeSpeed: 100,
+									  loop: true,
+									  showCursor: false,
+									  
+									});	
+					</script> -->
 					<!-- <p class="role">I am a  web developer</p> -->
 
 					<!-- <p> Here is my discription</p> -->
@@ -292,7 +304,7 @@
 			</div>
 		</div>
 
-
+		
 	</body>
 
 </html>
