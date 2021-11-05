@@ -1,5 +1,8 @@
 // to build http server
 const http = require('http');
+const url = require('url');
+
+
 
 const app = http.createServer();
 // a request from terminal
@@ -18,9 +21,18 @@ app.on('request', (req, res) => {
 
     //req.url
     // console.log(req.url);
-    if (req.url == '/index') {
+
+    // parse the req.ul to object
+    // let params = url.parse(req.url, true).query;
+    // console.log(params['name']);
+    // console.log(params['age']);
+    let { query, pathname } = url.parse(req.url, true);
+    console.log(query.name);
+    console.log(query.age);
+
+    if (pathname == '/index' || req.url == '/') {
         res.end('<h2>welcom to homepage</h2>')
-    } else if (req.url == '/list') {
+    } else if (pathname == '/list') {
         res.end('welcome to listpage');
     } else {
         res.end('not found');
