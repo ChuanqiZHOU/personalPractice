@@ -10,7 +10,8 @@ const views = path.join(__dirname, 'views', 'index.art')
 
 const html = template(views, {
     name: 'zhang3',
-    age: 20
+    age: 17,
+    content: "<h1>hello world </h1>"
 })
 
 console.log(html);

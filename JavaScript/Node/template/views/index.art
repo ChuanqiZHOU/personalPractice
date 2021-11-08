@@ -9,7 +9,16 @@
 </head>
 
 <body>
-    {{name}} {{age}}
+    <p>{{name}}</p>
+    <p>{{age}}</p>
+    <p>{{@content}}</p>
+
+    {{if age > 18 }} age > 18 {{/if}}
+
+    <% if (age > 18) { %> "my age is greater than 18"
+        <% } else if (age <16) { %> "my age is lower than 15"
+            <%} else { %> "age is not good"
+                <% } %>
 
 </body>
 
