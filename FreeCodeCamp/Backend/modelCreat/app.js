@@ -31,5 +31,5 @@ Student.create({ name: "Jerry", age: 10, gender: "male" });
 
 const arrayStu = ["tom", "Jerry"];
 
-const sFinding = Student.find({ name: { $in: arrayStu } });
-console.log(sFinding);
+// const sFinding = Student.find({ name: { $in: arrayStu } });
+// console.log(sFinding);
