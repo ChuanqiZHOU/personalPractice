@@ -1,70 +1,39 @@
 //import http
 const http = require('http');
+//import http from 'http';
 
-// import router
-const getRouter = require('router');
 
 //import mongoose
 require('./model/conect.js');
-
-// import student model from user.js
-const Student = require('./model/user.js');
+//import ('./model/conect.js');
 
 // import art-template
 const template = require('art-template');
+//import template from 'art-template';
 
 const path = require('path');
+//import path from 'path';
+//const __dirname = path.resolve();
 
-// import the method to analysis post method
-const queryString = require('querystring');
 
 // import static resource access
 const serveStatic = require('serve-static');
+//import serveStatic from 'serve-static';
 
-// obtain object of getRouter
-const router = getRouter();
+// import dataformat to formate enterDate of Student information
+const dateFormat = require('dateformat');
+
+// import router part 
+
+const router = require('./route/index.js');
 
 // build the static resource access
-
 const serve = serveStatic(path.join(__dirname, 'public'));
+
 // set the template root directory
 template.defaults.root = path.join(__dirname, 'views');
 
-// send student's personal information
-router.get('/add', (req, res) => {
-    let html = template('index.art', {});
-    res.end(html);
-})
-
-// send student list
-router.get('/list', (req, res) => {
-    let html = template('list.art', {});
-    res.end(html);
-
-    //res.end('index')
-})
-
-// build router for post request from '/add'
-router.post('/add', (req, res) => {
-    let formdata = '';
-    req.on('data', para => {
-        formdata += para;
-    })
-
-    req.on('end', async() => {
-        //let studentItem = queryString.parse(formdata);
-        // save adding student information to database
-        await Student.create(queryString.parse(formdata));
-        // redirect for this page
-        res.writeHead(301, {
-                Location: '/list'
-            }),
-            res.end();
-    })
-
-})
-
-
+template.defaults.imports.dateFormat = dateFormat;
 
 //build http server
 const app = http.createServer();
