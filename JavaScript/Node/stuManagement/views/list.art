@@ -19,7 +19,7 @@
             <th>所属学院</th>
             <th>入学时间</th>
         </tr>
-        {{each students}}
+        {{each students1}}
         <tr>
             <th>{{$value.name}}</th>
             <th>{{$value.age}}</th>

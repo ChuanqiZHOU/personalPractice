@@ -30,7 +30,8 @@ router.get('/list', async(req, res) => {
     let students = await Student.find();
     console.log(students);
     let html = template('list.art', {
-        students: students
+        //students: students
+        students1: students
     });
     res.end(html);
 
