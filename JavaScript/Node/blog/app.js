@@ -5,6 +5,12 @@ const path = require('path');
 
 const app = express();
 
+// link to database
+require('./model/connect');
+
+// link to user collection to test User.create() function
+//require('./model/user');
+
 //the position of template
 app.set('views', path.join(__dirname, 'views'));
 
