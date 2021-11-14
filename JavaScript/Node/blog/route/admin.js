@@ -8,4 +8,11 @@ admin.get('/login', (req, res) => {
 
 });
 
+// user list router
+
+admin.get('/user', (req, res) => {
+
+    res.render('admin/user')
+})
+
 module.exports = admin;
