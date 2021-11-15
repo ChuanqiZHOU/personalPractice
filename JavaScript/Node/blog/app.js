@@ -2,11 +2,19 @@
 const express = require('express');
 
 const path = require('path');
+// import body-parser to analysis the post params
+
+const bodyParser = require('body-parser');
+
 
 const app = express();
 
 // link to database
 require('./model/connect');
+
+// analysis post params
+
+app.use(bodyParser.urlencoded({ extended: false }));
 
 // link to user collection to test User.create() function
 //require('./model/user');
