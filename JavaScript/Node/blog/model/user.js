@@ -2,6 +2,8 @@
 
 const mongoose = require('mongoose')
 
+const bcrypt = require('bcrypt');
+
 const userSchema = new mongoose.Schema({
 
     username: {
@@ -38,15 +40,23 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.model('User', userSchema)
     // the following is test coding for User creation
-    // User.create({
-    //         username: 'wang1',
-    //         email: 'wang1@sina.com',
-    //         password: '123456',
-    //         role: 'admin',
-    //         state: 0
 
-//     }).then(() => console.log('user is created'))
-//     .catch(() => console.log('user created wrong'));
+async function createUser() {
+    const salt = await bcrypt.genSalt(10); //produce random string
+    const pass = await bcrypt.hash('123456', salt);
+    const user = await User.create({
+            username: 'wang2',
+            email: 'wang2@sina.com',
+            password: pass,
+            role: 'admin',
+            state: 0
+
+        }).then(() => console.log('user is created'))
+        .catch(() => console.log('user created wrong'));
+};
+
+// createUser();
+
 module.exports = {
     User // in ES6, User means "User: User"
 }

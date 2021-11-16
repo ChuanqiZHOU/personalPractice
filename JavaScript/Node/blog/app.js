@@ -5,7 +5,9 @@ const path = require('path');
 // import body-parser to analysis the post params
 
 const bodyParser = require('body-parser');
+// import express-session model
 
+const session = require('express-session');
 
 const app = express();
 
@@ -15,6 +17,8 @@ require('./model/connect');
 // analysis post params
 
 app.use(bodyParser.urlencoded({ extended: false }));
+
+app.use(session({ secret: 'secret key' }));
 
 // link to user collection to test User.create() function
 //require('./model/user');
