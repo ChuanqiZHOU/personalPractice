@@ -2,53 +2,21 @@ const express = require('express');
 
 const admin = express.Router();
 
-const bcrypt = require('bcrypt');
-
-// import User structure fuction
-const { User } = require('../model/user');
 
 
-admin.get('/login', (req, res) => {
+admin.get('/login', require('./admin/loginPage'));
 
-    res.render('admin/login');
-
-});
-
-admin.post('/login', async(req, res) => {
-    //res.send(req.body); to abtain req params
-    const { email, password } = req.body;
-
-    // if no email and password input
-    if (email.trim().length == 0 || password.trim().length == 0) {
-        return res.status(400).render('admin/error', { msg: 'email and password wrong' });
-    }
-    // find user information according to email, must use async
-    // user params is object or null
-    let user = await User.findOne({ email: email });
-    if (user) {
-        // compare password with crypt mode
-        let isValid = await bcrypt.compare(password, user.password);
-        if (isValid) {
-            //login sucessfull
-            req.session.username = user.username;
-
-            req.app.locals.userInfo = user;
-            //redirect to user list
-            res.redirect('/admin/user');
-        } else {
-            res.status(400).render('admin/error', { msg: 'user is wrong' });
-        }
-    } else {
-        // user is null
-        res.status(400).render('admin/error', { msg: 'user is wrong' });
-    }
-
-});
+admin.post('/login', require('./admin/login'));
 // user list router
 
-admin.get('/user', (req, res) => {
+admin.get('/user', require('./admin/userPage'));
 
-    res.render('admin/user')
+admin.get('/logout', (req, res) => {
+
+    req.session.destroy(function() {
+        res.clearCookie('connect.sid');
+        res.redirect('/admin/login');
+    })
 })
 
 module.exports = admin;
