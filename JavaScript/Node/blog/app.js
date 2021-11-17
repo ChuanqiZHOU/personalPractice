@@ -17,7 +17,7 @@ require('./model/connect');
 // analysis post params
 
 app.use(bodyParser.urlencoded({ extended: false }));
-
+// write session and give a crypt key
 app.use(session({ secret: 'secret key' }));
 
 // link to user collection to test User.create() function
@@ -33,10 +33,17 @@ app.set('view engine', 'art');
 // which template is used?
 app.engine('art', require('express-art-template'));
 
+// open the static resource
+app.use(express.static(path.join(__dirname, 'public')));
+
+
+// import router model
 const home = require('./route/home');
 
 const admin = require('./route/admin');
 
+// obtain the user's login state
+app.use('/admin', require('./middleware/loginGuard'))
 
 // open the static sources
 app.use(express.static(path.join(__dirname, 'public')));
