@@ -11,12 +11,10 @@ admin.post('/login', require('./admin/login'));
 
 admin.get('/user', require('./admin/userPage'));
 
-admin.get('/logout', (req, res) => {
+admin.get('/logout', require('./admin/logout'));
 
-    req.session.destroy(function() {
-        res.clearCookie('connect.sid');
-        res.redirect('/admin/login');
-    })
-})
+admin.get('/user-edit', require('./admin/user-edit'));
+
+admin.post('/user-edit', require('./admin/user-edit-fn.js'))
 
 module.exports = admin;

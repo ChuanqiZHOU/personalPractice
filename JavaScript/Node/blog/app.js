@@ -46,11 +46,18 @@ const admin = require('./route/admin');
 app.use('/admin', require('./middleware/loginGuard'))
 
 // open the static sources
-app.use(express.static(path.join(__dirname, 'public')));
+//app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/home', home);
 
 app.use('/admin', admin);
+
+// error middleware
+app.use((err, req, res, next) => {
+    // string to object using JSON.parse()
+    const result = JSON.parse(err);
+    res.redirect(`${result.path}?message=${result.message}`);
+})
 
 
 
