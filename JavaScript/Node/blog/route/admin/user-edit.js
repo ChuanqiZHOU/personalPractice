@@ -10,12 +10,16 @@ module.exports = async(req, res) => {
         // invoke user edit page
         res.render('admin/user-edit', {
             message: message,
-            user: user
+            user: user,
+            link: '/admin/user-modify?id=' + id,
+            button: 'modify'
         })
     } else {
         //add action
         res.render('admin/user-edit', {
-            message: message
+            message: message,
+            link: 'admin/user-edit',
+            button: 'add'
         })
     }
 

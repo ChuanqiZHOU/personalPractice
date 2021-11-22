@@ -56,7 +56,16 @@ app.use('/admin', admin);
 app.use((err, req, res, next) => {
     // string to object using JSON.parse()
     const result = JSON.parse(err);
-    res.redirect(`${result.path}?message=${result.message}`);
+    let params = [];
+    for (let attr in result) {
+        if (attr != path) {
+            params.push(attr + '=' + result[attr]);
+        }
+
+    }
+
+    res.redirect(`${result.path}?${params.join('&')}`);
+    //res.redirect(`${result.path}?message=${result.message}`);
 })
 
 
