@@ -17,7 +17,7 @@ admin.get('/user-edit', require('./admin/user-edit'));
 
 admin.post('/user-edit', require('./admin/user-edit-fn.js'));
 
-admin.post('/user-modify', require('./admin/user-modify.js'))
+admin.post('/user-modify', require('./admin/user-modify.js'));
 
-
+admin.get('/delete', require('./admin/user-delete.js'))
 module.exports = admin;
