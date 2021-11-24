@@ -18,7 +18,7 @@ module.exports = async(req, res) => {
         //add action
         res.render('admin/user-edit', {
             message: message,
-            link: 'admin/user-edit',
+            link: '/admin/user-edit',
             button: 'add'
         })
     }

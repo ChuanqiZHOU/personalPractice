@@ -31,10 +31,19 @@ if (stats.isFile()) {
             //content_subtitle = data.substring(d, e).trim();
             const e = data.trim().split('\r\n');
 
-            console.log(e)
-            console.log(e.length);
+            let e_value = e.forEach((value, index) => {
+                //const value_str = e[index].toString;
+                if (value.indexOf("Title") === 0) {
+                    content_title = value;
+                }
+                //return console.log(value.indexOf("#"));
 
-            processFile();
+            })
+            console.log(content_title);
+
+            //console.log(e.length);
+
+            //processFile();
             // let htmlStr = marked(data.toString());
             //console.log(htmlStr);
             // fs.writeFile(output, htmlStr, err => {
