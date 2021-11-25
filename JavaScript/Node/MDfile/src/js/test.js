@@ -18,14 +18,14 @@ if (stats.isFile()) {
         if (err) {
             console.log('fs reading is wrong')
         } else {
-            const a = data.search(/Title/);
-            const b = data.search(/Author/);
-            content_title = data.substring(a, b).trim();
+            // const a = data.search(/Title/);
+            // const b = data.search(/Author/);
+            // content_title = data.substring(a, b).trim();
 
-            const c = data.search(/Slug/);
-            content_author = data.substring(b, c).trim();
+            // const c = data.search(/Slug/);
+            // content_author = data.substring(b, c).trim();
 
-            const d = data.search(/#/);
+            // const d = data.search(/#/);
             //console.log(d);
             //const e = data.search(/\n{4}/);
             //content_subtitle = data.substring(d, e).trim();
