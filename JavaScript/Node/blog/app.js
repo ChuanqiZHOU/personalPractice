@@ -45,9 +45,6 @@ const admin = require('./route/admin');
 // obtain the user's login state
 app.use('/admin', require('./middleware/loginGuard'))
 
-// open the static sources
-//app.use(express.static(path.join(__dirname, 'public')));
-
 app.use('/home', home);
 
 app.use('/admin', admin);
