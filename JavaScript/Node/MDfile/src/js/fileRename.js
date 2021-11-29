@@ -17,7 +17,7 @@ const fileRename = (inputDir, outputDir) => {
             return;
         }
         if (stats.isFile()) {
-            outputFileName = outputDir + '/' + value.slice(0, -2) + 'html';
+            outputFileName = outputDir + '/' + value.slice(0, -2) + 'art';
             // console.log(outputFileName);
         }
         mdToHtml(fpath, outputFileName);

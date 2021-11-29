@@ -1,0 +1,12 @@
+{{extend '../../views/common/layout.art'}}{{block 'main'}}<p>===
+Title: The Why Behind Work
+Author: Steve Liew
+Slug: the-why-behind-work
+===
+If your only reason for coming to work is to earn some money, then you&#39;re missing an opportunity.</p>
+<p>Your job should be <strong>fulfilling</strong><sup>1</sup></p>
+<hr>
+<ol>
+<li>And fun, and stimulating, and rewarding.  In both senses.</li>
+</ol>
+{{block}}
