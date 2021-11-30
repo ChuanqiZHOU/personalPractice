@@ -1,0 +1,8 @@
+{{extend './common/layout.art'}} {{block 'main'}}
+<ul>
+    {{each fileList}}
+    <li>
+        <a href="/src/html?name={{$value}}">{{$value}}</a></li>
+    {{/each}}
+</ul>
+{{/block}}

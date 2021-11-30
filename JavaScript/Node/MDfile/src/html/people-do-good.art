@@ -8,4 +8,4 @@ Slug: people-do-good
 <p>Those 531 people made a conscious decision to make sure it got to the right place. They decided that making a quick detour to our <a href="http://www.techsummit.nz/">Canterbury Tech Summit</a> booth was worth it.</p>
 <p>This year, Summit-goers showed us we were right to put our faith in people. In the end, 84% of attendees decided to do the right thing.</p>
 <p>For those who don’t know, at the Tech Summit this year (just like last year), we opted out of swag bags, and opted in to giving.</p>
-{{block}}
+{{/block}}

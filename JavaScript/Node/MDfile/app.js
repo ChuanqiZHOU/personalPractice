@@ -6,7 +6,8 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'art');
 app.engine('art', require('express-art-template'));
 
-const post = require('./route/post')
+const post = require('./route/post');
 
-app.get('/', post)
+app.get('/', post);
+app.get('/src/html', post);
 app.listen(80, console.log('server is running'))
