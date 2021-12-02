@@ -4,6 +4,10 @@ const path = require('path');
 
 const bodyParser = require('body-parser');
 
+//import express-session model
+const session = require("express-session");
+
+
 const app = express();
 
 require('./model/connect');
@@ -11,6 +15,9 @@ require('./model/connect');
 
 // obtain post request params
 app.use(bodyParser.urlencoded({ extended: false }));
+
+// write session
+app.use(session({ secret: "secret key" }));
 
 // set express template
 app.set('views', path.join(__dirname, 'views'));
@@ -22,8 +29,8 @@ app.use(express.static(__dirname + '/' + 'public'));
 
 const { home } = require('./route/home');
 const { admin } = require('./route/admin');
-
-
+// 登录拦截
+app.use("/admin", require("./middleware/loginguard"));
 app.use('/home', home);
 
 app.use('/admin', admin);
