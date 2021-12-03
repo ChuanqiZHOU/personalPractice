@@ -2,57 +2,24 @@ const express = require('express');
 
 const admin = express.Router();
 
-const { User } = require('../model/user');
-
-const bcrypt = require('bcrypt');
-admin.get('/login', (req, res) => {
-    res.render('admin/login.art')
-})
+//渲染登录页面
+admin.get('/login', require('./admin/loginPage'))
 
 // for login in login.art
-admin.post('/login', async(req, res) => {
-    const { email, password } = req.body;
-    if (email.trim().length == 0 || password.trim().length == 0) {
-        // return res.status(400).send('email or password is wrong')
-        return res.status(400).render('admin/error', {
-            msg: 'email or password is wrong'
-        })
-    }
-    // to check user information in database
-    let user = await User.findOne({ email });
-    if (user) {
-        // password comparing
-        let isEqual = await bcrypt.compare(password, user.password);
-        // if (password == user.password) {
-        if (isEqual) {
-            req.session.username = user.username;
-            //res.send("login sucessful");
-            req.app.locals.userInfo = user;
-            // 登录成功后，重定向到userlist
-            res.redirect('/admin/user')
-        } else {
-          res
-            .status(400)
-            .render("admin/error", { msg: "email or password is error" });
-        }
-    } else {
-        res.status(400).render('admin/error', { msg: 'email or password is error' })
-    }
-});
+admin.post('/login', require('./admin/login'));
 
 //creat userlist router
-admin.get('/user', (req, res) => {
-    res.render('admin/user.art', {
-            //msg: req.session.username
-        
-        })
-    })
+admin.get('/user', require('./admin/userPage'));
     // admin.get('/', (req, res) => {
     //     res.send('welcome to admin page')
 
 // });
 
-// admin.get('/logout', (req, res) => {
+admin.get('/logout', require('./admin/logout'));
     
-// })
+// 创建编辑页面路由
+admin.get('/user-edit', require('./admin/user-edit'));
+
+//创建实现用户添加功能的路由
+admin.post('/user-edit', require('./admin/user-edit-fn'))
 module.exports = { admin }
