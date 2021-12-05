@@ -7,13 +7,13 @@ const bodyParser = require('body-parser');
 //import express-session model
 const session = require("express-session");
 
-
 const app = express();
 
 require('./model/connect');
 //require('./model/user'); this sentence is only for initiated user, then delete it.
 
-// obtain post request params
+// obtain post request params, then can use req.body to 
+// store the post request params
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // write session
@@ -34,4 +34,12 @@ app.use("/admin", require("./middleware/loginguard"));
 app.use('/home', home);
 
 app.use('/admin', admin);
+
+//错误处理中间件
+app.use((err, req, res, next) => {
+    const result = JSON.parse(err)
+ return res.redirect(`${result.path}?message=${result.message}`);
+
+})
+
 app.listen(80, console.log('server is running'));

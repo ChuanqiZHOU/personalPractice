@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const bcrypt = require('bcrypt')
-
+const Joi = require("joi");
 const userSchema = new mongoose.Schema({
     username: {
         type: String,
@@ -44,7 +44,32 @@ async function creatUser() {
 
 //creatUser();
 
+// 验证用户信息
+const validateUser = (user) => {
+ const schema = Joi.object({
+   username: Joi.string()
+     .min(2)
+     .max(12)
+     .required()
+     .error(new Error("username is not passed")), //自定义错误信息,
+   email: Joi.string().email().error(new Error("email is not passed")),
+   password: Joi.string()
+     .regex(/^[a-zA-Z0-9]{3,30}$/)
+     .error(new Error("password is not passed")),
+   role: Joi.string()
+     .valid("normal", "admin")
+     .required()
+     .error(new Error("role is not crect")),
+   state: Joi.number()
+     .valid(0, 1)
+     .required()
+     .error(new Error("state is not crect")),
+ });
+return schema.validateAsync(user);
+
+}
 
 
-
-module.exports = { User }
+module.exports = {
+    User,
+validateUser}
