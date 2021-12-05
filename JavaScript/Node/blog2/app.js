@@ -37,8 +37,15 @@ app.use('/admin', admin);
 
 //错误处理中间件
 app.use((err, req, res, next) => {
-    const result = JSON.parse(err)
- return res.redirect(`${result.path}?message=${result.message}`);
+    const result = JSON.parse(err);
+    let params = [];
+    for (let attr in result) {
+        if (attr != 'path') {
+            params.push(attr + '=' + result[attr]);  // message = 字符串
+
+        }
+    }
+ return res.redirect(`${result.path}?${params.join('&')}`);
 
 })
 

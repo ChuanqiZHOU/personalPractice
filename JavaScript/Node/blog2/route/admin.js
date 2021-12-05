@@ -21,5 +21,11 @@ admin.get('/logout', require('./admin/logout'));
 admin.get('/user-edit', require('./admin/user-edit'));
 
 //创建实现用户添加功能的路由
-admin.post('/user-edit', require('./admin/user-edit-fn'))
+admin.post('/user-edit', require('./admin/user-edit-fn'));
+
+//创建用户信息修改路由
+admin.post('/user-modify', require('./admin/user-modify'));
+
+//添加删除用户路由
+admin.get('/delete', require('./admin/user-delete'));
 module.exports = { admin }
