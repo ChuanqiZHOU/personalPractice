@@ -1,0 +1,11 @@
+{
+    "title": "blog management---development",
+    "db": {
+        "user": "bill",
+        "host": "localhost",
+        "port": "27017",
+        "name": "blog2"
+
+    }
+
+}
