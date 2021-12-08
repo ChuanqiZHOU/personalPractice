@@ -15,11 +15,23 @@ const login = async (req, res) => {
     let isEqual = await bcrypt.compare(password, user.password);
     // if (password == user.password) {
     if (isEqual) {
+      //将用户名存储在session中
       req.session.username = user.username;
+      //将用户角色存储在session中；
+      req.session.role = user.role;
       //res.send("login sucessful");
       req.app.locals.userInfo = user;
-      // 登录成功后，重定向到userlist
-      res.redirect("/admin/user");
+      //判断用户角色
+      if (user.role == 'admin') {
+        // 登录成功后，重定向到userlist
+      res.redirect('/admin/user');
+
+      } else {
+        //跳转到blog homepage
+        res.redirect('/home/');
+        
+      };
+      
     } else {
       res
         .status(400)

@@ -10,8 +10,8 @@ module.exports = async(req, res) => {
   // return
   let result2 = JSON.stringify(result1);
   let result = JSON.parse(result2);
-  //  res.send(result);
-  // return;
+  // res.send(result);
+  //  return;
   // 向首页地址渲染数据
   //res.render('home/article.art')
   res.render('home/default.art', {
