@@ -8,6 +8,6 @@ app.engine('art', require('express-art-template'));
 
 const post = require('./route/post');
 
-app.get('/', post);
-app.get('/src/html', post);
+app.use('/', post);
+
 app.listen(80, console.log('server is running'))
