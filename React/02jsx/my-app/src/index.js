@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+//import img from './images/logo192.png'
+//import PropTypes from 'prop-types'
 //import Hello from './Hello.js'
 // const title = React.createElement('h1', null, 'hello react!!!!');
 
@@ -16,7 +18,7 @@ import ReactDOM from 'react-dom';
 //    <h1 className="title">
 //      hello JSX
 //      <span />
-//      {name}, age: {age}
+//      {name}, age: {age}s
 //    </h1>
 //  );
 
@@ -401,16 +403,160 @@ import ReactDOM from 'react-dom';
 // ReactDOM.render(<App />, document.getElementById("root")
 // 
 // children 属性
-const APP = (props) => {
-  console.log(props);
-  return (
-    <div>
-      <h1>组件标签的子节点：{props.children}</h1>
-    </div>
-  );
-};
+// const APP = (props) => {
+//   console.log(props);
+//   return (
+//     <div>
+//       <h1>组件标签的子节点：{props.children}</h1>
+//     </div>
+//   );
+// };
+// ReactDOM.render(
+//   <APP>i am children node</APP>,
+//   document.getElementById("root")
+// );
+
+// render-props
+
+//创建mouse组件
+// class Mouse extends React.Component{
+//   //鼠标位置state
+//   state = {
+//     x: 0,
+//     y: 0
+//   }
+  //鼠标移动事件的事件处理程序
+  // handleMouseMove = e => {
+  //   this.setState({
+  //     x: e.clientX,
+  //     y: e.clientY
+  //   })
+  // }
+  //监听鼠标移动事件,发生于组件创建时期
+  // componentDidMount() {
+  //   window.addEventListener('mousemove', this.handleMouseMove)
+  // }
+
+  //组件卸载时，移除事件
+// componentWillUnmount(){
+// window.removeEventListener('mousemove', this.handleMouseMove)
+// }
+
+  // render() {
+    //return null
+//return this.props.render(this.state);
+//     return this.props.children(this.state);
+    
+//   }
+
+  
+// }
+
+//添加props校验
+// Mouse.propTypes = {
+//   children: PropTypes.func.isRequired
+// }
+// class App extends React.Component {
+
+//   mouseFollow = (mouse) => {
+//         return <p>鼠标位置： { mouse.x} { mouse.y}</p>
+//   }
+  
+//   render(){
+//   return (
+//     <div>
+//       <h1> render-props mode</h1>
+//       <Mouse>
+//         {
+//           mouse => {
+//             return (
+//               <p>
+//                 鼠标位置： {mouse.x} {mouse.y}
+//               </p>
+//             );
+//           }
+//       }
+//       </Mouse>
+      // <Mouse render={this.mouseFollow} />
+      // <Mouse render={mouse => {
+      //   return <img src={img} alt="cat" style={{
+      //     position:'absolute',
+      // top: mouse.y - 96,
+      // left: mouse.x - 96
+      //   }}/>
+      // }}></Mouse> 
+//     </div>
+//   )}
+// };
+
+// 高阶组件
+
+//创建高阶组件
+function withMouse(WrappedComponent) {
+  //提供复用状态逻辑的组件
+  class Mouse extends React.Component {
+    //鼠标位置state
+    state = {
+      x: 0,
+      y: 0,
+    };
+    //鼠标移动事件的事件处理程序
+    handleMouseMove = (e) => {
+      this.setState({
+        x: e.clientX,
+        y: e.clientY,
+      });
+    };
+    //监听鼠标移动事件,发生于组件创建时期
+    componentDidMount() {
+      window.addEventListener("mousemove", this.handleMouseMove);
+    }
+    //组件卸载时，移除事件
+    componentWillUnmount(){
+    window.removeEventListener('mousemove', this.handleMouseMove)
+    }
+    render() {
+    //渲染组件，此时创建一个组件，并将this.state的属性添加给它
+      return <WrappedComponent {...this.state}></WrappedComponent>
+    }
+  }
+//设置 displayName
+  Mouse.displayName = `withMouse${getDisplayName(WrappedComponent)}`
+  return Mouse
+}
+
+function getDisplayName(WrappedComponent) {
+  return WrappedComponent.displayName || WrappedComponent.name || 'component'
+}
+//用来测试高阶组件.利用props传入属性值
+const Position = props => (
+  <p>
+    鼠标当前位置是：({props.x}, y:{props.y})
+  </p>
+)
+const newPosition = (props) => (
+  <p>
+    鼠标当前位置是：({props.x}, y:{props.y})
+  </p>
+);
+
+// 获取增强后的组件
+const MousePosition = withMouse(Position);
+const MouseNewPosition = withMouse(newPosition);
+
+class App extends React.Component{
+  render() {
+    return (
+      <div>
+        <h1>高阶组件</h1>
+        <MousePosition></MousePosition>
+        <MouseNewPosition></MouseNewPosition>
+      </div>
+    )
+  }
+}
 
 ReactDOM.render(
-  <APP>i am children node</APP>,
+  <App/>,
   document.getElementById("root")
 );
