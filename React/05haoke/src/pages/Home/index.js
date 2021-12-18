@@ -1,16 +1,17 @@
 import React from "react";
+import ReactDOM from 'react-dom'
 
 
 // 导入路由
-import { BrowserRouter,Route, Routes } from 'react-router-dom';
+// import { BrowserRouter,Route, Routes } from 'react-router-dom';
 
 //导入News组件
-import News from '../News';
+// import News from '../News';
 //导入TabBar
 import { TabBar } from "antd-mobile";
 
 // 导入outlet 组件
-import {Outlet} from 'react-router-dom'
+//import { Outlet } from 'react-router-dom';
 export default class Home extends React.Component {
   state = {
     selectedTab: "redTab",
@@ -66,23 +67,17 @@ export default class Home extends React.Component {
       <div>
         this is Home
         {/* 渲染子路由 */}
-        <Outlet />
+        {/* <Outlet /> */}
         {/* <Routes>  
         <Route path="/home/news" element={<News></News>}></Route>
         </Routes> */}
         {/* TabBar */}
-        <div
-          style={
-            this.state.fullScreen
-              ? { position: "fixed", height: "100%", width: "100%", top: 0 }
-              : { height: 400 }
-          }
-        >
+        
           <TabBar
             unselectedTintColor="#949494"
             tintColor="#33A3F4"
             barTintColor="white"
-            hidden={this.state.hidden}
+            // hidden={this.state.hidden}
           >
             <TabBar.Item
               title="Life"
@@ -205,7 +200,7 @@ export default class Home extends React.Component {
             </TabBar.Item>
           </TabBar>
         </div>
-      </div>
+      
     );
   }
 }
