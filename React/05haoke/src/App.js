@@ -28,13 +28,14 @@ function App() {
       </ul>
 
       {/* 配置路由 */}
-
+      <BrowserRouter>
       <Routes>
         <Route path="/home" element={<Home></Home>}>
           <Route path="news" element={<News></News>}></Route>
         </Route>
         <Route path="/citylist" element={<CityList></CityList>}></Route>
       </Routes>
+      </BrowserRouter>
     </div>
   );
 }
