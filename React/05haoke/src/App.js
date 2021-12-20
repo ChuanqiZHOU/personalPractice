@@ -1,41 +1,101 @@
 //import react from "react";
 //import { Button } from "antd-mobile";
-
+import './cssForTabBar.css'
 // 导入路由
-import {BrowserRouter, Routes, Route, Link} from 'react-router-dom'
+import {
+  BrowserRouter,
+  useNavigate,
+  useLocation,
+  MemoryRouter as Router,
+  Routes,
+  Route,
+  Link,
+  Redirect,
+  Navigate
+} from "react-router-dom";
 
-// 导入Home, citylist
+// 导入Home, citylist News  MyProfile
 import Home from './pages/Home';
-import CityList from "./pages/CityList";
-// 导入News
+import FindHouse from "./pages/FindHouse";
 import News from './pages/News';
+import MyProfile from './pages/MyProfile';
+
+// 导入TabBar
+import { FC } from "react";
+import { NavBar, TabBar } from "antd-mobile";
+
+import {
+  AppOutline,
+  MessageOutline,
+  UnorderedListOutline,
+  UserOutline,
+} from "antd-mobile-icons";
+
+const Bottom: FC = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  let { pathname } = location;
+  
+  const setRouteActive = (value: string) => {
+    navigate(value);
+  };
+
+  const tabs = [
+    {
+      key: "/home",
+      title: "首页",
+      icon: <AppOutline />,
+    },
+    {
+      key: "/find",
+      title: "找房",
+      icon: <UnorderedListOutline />,
+    },
+    {
+      key: "/news",
+      title: "资讯",
+      icon: <MessageOutline />,
+    },
+    {
+      key: "/myprofile",
+      title: "个人中心",
+      icon: <UserOutline />,
+    },
+  ];
+
+  //让首页成为/home，同时菜单高亮
+  pathname = pathname === '/' ? '/home' : pathname;
+  
+  return (
+    <TabBar
+      activeKey={pathname}
+      onChange={(value) => setRouteActive(value)}
+    >
+      {tabs.map((item) => (
+        <TabBar.Item key={item.key} icon={item.icon} title={item.title} />
+      ))}
+    </TabBar>
+  );
+};
 
 function App() {
   return (
     <div className="App">
-      {/* 项目跟组件 <Button>项目登录</Button> */}
-      {/* 配置导航菜单 */}
-      <ul>
-        <li>
-          <Link to="/home">首页</Link>
-        </li>
-        <li>
-          <Link to="/citylist">City</Link>
-        </li>
-        <li>
-          <Link to="/home/news">嵌套</Link>
-        </li>
-      </ul>
-
-      {/* 配置路由 */}
-      <BrowserRouter>
-      <Routes>
-        <Route path="/home" element={<Home></Home>}>
-          <Route path="news" element={<News></News>}></Route>
-        </Route>
-        <Route path="/citylist" element={<CityList></CityList>}></Route>
-      </Routes>
-      </BrowserRouter>
+      <div className="app">
+        {/* 配置路由 */}
+        <div className="appbody">
+          <Routes>
+            <Route path="/" element={<Home></Home>}></Route>
+            <Route path="/home" element={<Home></Home>}></Route>
+            <Route path="/news" element={<News></News>}></Route>
+            <Route path="/find" element={<FindHouse></FindHouse>}></Route>
+            <Route path="/myprofile" element={<MyProfile></MyProfile>}></Route>
+          </Routes>
+        </div>
+        <div className="appbottom">
+          <Bottom></Bottom>
+        </div>
+      </div>
     </div>
   );
 }
