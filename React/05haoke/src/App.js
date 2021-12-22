@@ -1,6 +1,6 @@
 //import react from "react";
 //import { Button } from "antd-mobile";
-import './cssForTabBar.css'
+import './cssForTabBar.css';
 // 导入路由
 import {
   BrowserRouter,
@@ -24,12 +24,7 @@ import MyProfile from './pages/MyProfile';
 import { FC } from "react";
 import { NavBar, TabBar } from "antd-mobile";
 
-import {
-  AppOutline,
-  MessageOutline,
-  UnorderedListOutline,
-  UserOutline,
-} from "antd-mobile-icons";
+
 
 const Bottom: FC = () => {
   const navigate = useNavigate();
@@ -44,27 +39,27 @@ const Bottom: FC = () => {
     {
       key: "/home",
       title: "首页",
-      icon: <AppOutline />,
+      icon: <i className="iconfont icon-ind"></i>,
     },
     {
       key: "/find",
       title: "找房",
-      icon: <UnorderedListOutline />,
+      icon: <i className="iconfont icon-findHouse"></i>,
     },
     {
       key: "/news",
       title: "资讯",
-      icon: <MessageOutline />,
+      icon: <i className="iconfont icon-infom"></i>,
     },
     {
       key: "/myprofile",
       title: "个人中心",
-      icon: <UserOutline />,
+      icon: <i className="iconfont icon-my"></i>,
     },
   ];
 
   //让首页成为/home，同时菜单高亮
-  pathname = pathname === '/' ? '/home' : pathname;
+  // pathname = pathname === '/' ? '/home' : pathname;
   
   return (
     <TabBar
@@ -85,7 +80,8 @@ function App() {
         {/* 配置路由 */}
         <div className="appbody">
           <Routes>
-            <Route path="/" element={<Home></Home>}></Route>
+            {/* <Route path="/" element={<Home></Home>}></Route> */}
+            <Route path="/" element={<Navigate to ="/home"></Navigate>}></Route>
             <Route path="/home" element={<Home></Home>}></Route>
             <Route path="/news" element={<News></News>}></Route>
             <Route path="/find" element={<FindHouse></FindHouse>}></Route>
