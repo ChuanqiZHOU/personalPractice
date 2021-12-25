@@ -17,6 +17,7 @@ import navi2Logo4 from "../../assets/images/nav-4.png";
 // 导入outlet 组件
 import { Outlet } from 'react-router-dom';
 
+// 导航的数组
 const navs = [
   {
     id: 1,
@@ -56,15 +57,20 @@ const RenderNavs = () => {
     </div>
   ));
 };
-
-
-
 const Navi2 = () => (
   <div className="navi2">
     <RenderNavs></RenderNavs>
   </div>
 );
 
+// 租房小组的title
+const RentGroups = () => {
+  return (<div className="rentGroups">
+    <span className="rentGroups_title">租房小组</span>
+    <span className="rentGroups_more">更多</span>
+    </div>)
+
+}
 export default class Home extends React.Component {
   state = {
     // swipers data
@@ -124,6 +130,7 @@ export default class Home extends React.Component {
         }
            </div>
         <Navi2></Navi2>
+        <RentGroups></RentGroups>
       </div>
     );
   }
