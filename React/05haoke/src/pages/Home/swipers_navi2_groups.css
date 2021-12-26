@@ -1,0 +1,70 @@
+.ads_swiper {
+  position: relative;
+}
+.renderSwipers {
+  height: 30vh;
+  flex: 0 1 auto;
+  background-size: 80%;
+}
+.imgProps {
+  height: 35vh;
+  width: 100vw;
+}
+.navi2 {
+  display: flex;
+  flex-direction: row;
+  height: 10vh;
+}
+.navi2 .navi2_item {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  justify-content: center;
+  align-items: center;
+}
+.navi2 .navi2_item .navi2_item_logo {
+  height: 50%;
+}
+.navi2 .navi2_item .navi2_item_logo img {
+  height: 100%;
+}
+.navi2 .navi2_item .navi2_item_discription {
+  font-size: 12px;
+}
+.rentGroups .rentGroups_top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.rentGroups .rentGroups_top .rentGroups_title {
+  margin-left: 10px;
+  font-size: 16px;
+  font-weight: 700;
+}
+.rentGroups .rentGroups_top .rentGroups_more {
+  margin-right: 10px;
+  font-size: 14px;
+}
+.grid_item {
+  display: flex;
+  justify-content: center;
+}
+.grid_item .grid_item_l {
+  display: flex;
+  width: 55%;
+  flex-direction: column;
+  font-size: 14px;
+  margin-right: 5px;
+}
+.grid_item .grid_item_l .grid_item_l_title {
+  font-weight: 700;
+  align-self: flex-end;
+}
+.grid_item .grid_item_r {
+  height: 50px;
+  width: 50px;
+}
+.grid_item .grid_item_r img {
+  height: 80%;
+  width: 80%;
+}

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import{useNavigate} from 'react-router-dom'
 
 import { Swiper } from "antd-mobile";
-import styles from './swipers_navi2.css'
+import styles from './swipers_navi2_groups.css'
 import axios from 'axios'
 //导入navi2 item logo
 import navi2Logo1 from '../../assets/images/nav-1.png'
@@ -17,6 +17,8 @@ import navi2Logo4 from "../../assets/images/nav-4.png";
 // 导入outlet 组件
 import { Outlet } from 'react-router-dom';
 
+// 导入Grid 栅格
+import {Grid} from 'antd-mobile'
 // 导航的数组
 const navs = [
   {
@@ -63,21 +65,28 @@ const Navi2 = () => (
   </div>
 );
 
-// 租房小组的title
+ // 租房小组的title
 const RentGroups = () => {
-  return (<div className="rentGroups">
-    <span className="rentGroups_title">租房小组</span>
-    <span className="rentGroups_more">更多</span>
-    </div>)
+  return (
+    <div className="rentGroups">
+      <div className= 'rentGroups_top'>
+        <span className="rentGroups_title">租房小组</span>
+        <span className="rentGroups_more">更多</span>
+      </div>
+    </div>
+  );
 
-}
+  }
+  
+
+
 export default class Home extends React.Component {
   state = {
     // swipers data
     swipers: [],
     isSwiperLoaded: false,
     //添加groups租房小组数据
-    grousps:[]
+    groups:[]
   }
 
   // get the data to swipers
@@ -100,6 +109,9 @@ export default class Home extends React.Component {
       }
     );
     console.log(res)
+    this.setState({
+      groups: res.data.body
+    })
   }
   componentDidMount() {
   this.getSwipers();
@@ -114,23 +126,40 @@ export default class Home extends React.Component {
 ));
   }
 
+  renderGroups() {
+    return this.state.groups.map((item) => (
+      <Grid.Item key={item.id} className="grid_item">
+        <div className="grid_item_l">
+          <span className="grid_item_l_title">{item.title}</span>
+          <span className="grid_item_l_desc">{item.desc}</span>
+        </div>
+        <div className="grid_item_r">
+          <img src={`http://localhost:8080${item.imgSrc}`} alt="" />
+        </div>
+      </Grid.Item>
+    ));
+  }
 
-  
+ 
   render() {
     
     return (
-      <div >
+      <div>
         {/* {<Outlet></Outlet>} */}
-        <div className='ads_swiper'>
-          {
-            this.state.isSwiperLoaded ?
-              <Swiper className='renderSwipers'  autoplay loop allowTouchMove>
-          {this.renderSwipers()}
-          </Swiper>:''
-        }
-           </div>
+        <div className="ads_swiper">
+          {this.state.isSwiperLoaded ? (
+            <Swiper className="renderSwipers" autoplay loop allowTouchMove>
+              {this.renderSwipers()}
+            </Swiper>
+          ) : (
+            ""
+          )}
+        </div>
         <Navi2></Navi2>
         <RentGroups></RentGroups>
+        <Grid columns={2} gap={8}>
+          {this.renderGroups()}
+        </Grid>
       </div>
     );
   }
