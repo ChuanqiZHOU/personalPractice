@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import{useNavigate} from 'react-router-dom'
 
 import { Swiper } from "antd-mobile";
-import styles from './swipers_navi2_groups.css'
+import styles from "./swipersNavi2GroupsNews.css";
 import axios from 'axios'
 //导入navi2 item logo
 import navi2Logo1 from '../../assets/images/nav-1.png'
@@ -86,7 +86,9 @@ export default class Home extends React.Component {
     swipers: [],
     isSwiperLoaded: false,
     //添加groups租房小组数据
-    groups:[]
+    groups: [],
+    // 添加最新资讯
+    news: []
   }
 
   // get the data to swipers
@@ -108,14 +110,27 @@ export default class Home extends React.Component {
         }
       }
     );
-    console.log(res)
+    // console.log(res)
     this.setState({
       groups: res.data.body
     })
   }
+
+  async getNews() {
+    const res = await axios.get(
+      "http://localhost:8080/home/news?area=AREA%7C88cff55c-aaa4-e2e0"
+    );
+    console.log(res);
+    this.setState({
+      news: res.data.body
+    })
+  }
+
+
   componentDidMount() {
   this.getSwipers();
-      this.getGroups()
+    this.getGroups();
+    this.getNews();
   }
 
   renderSwipers() {
@@ -140,7 +155,25 @@ export default class Home extends React.Component {
     ));
   }
 
- 
+  renderNews() {
+    return this.state.news.map(item => (
+      <div className="newsContent" key={item.id}>
+        <div className='newsContent_img'>
+          <img src={`http://localhost:8080${item.imgSrc}`} alt="" />
+        </div>
+        <div className="newsContent_discription">
+          <div className="newsContent_title">
+                {item.title}
+          </div>
+          <div className="newsContentFromTo">
+            <span>{item.from}</span>
+            <span>{item.date}</span>
+          </div>
+        </div>
+        
+     </div>
+   ))
+ }
   render() {
     
     return (
@@ -154,12 +187,19 @@ export default class Home extends React.Component {
           ) : (
             ""
           )}
+          <div className="navi_top">
+            <span>hahah</span>
+          </div>
         </div>
         <Navi2></Navi2>
         <RentGroups></RentGroups>
         <Grid columns={2} gap={8}>
           {this.renderGroups()}
         </Grid>
+        <div className="news_title">最新资讯</div>
+        <div>
+          {this.renderNews()}
+        </div>
       </div>
     );
   }

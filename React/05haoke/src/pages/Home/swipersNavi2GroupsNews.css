@@ -1,9 +1,12 @@
 .ads_swiper {
-  position: relative;
+  display: flex;
+}
+.ads_swiper .navi_top {
+  background-color: pink;
 }
 .renderSwipers {
   height: 30vh;
-  flex: 0 1 auto;
+  flex: 1 1 auto;
   background-size: 80%;
 }
 .imgProps {
@@ -67,4 +70,35 @@
 .grid_item .grid_item_r img {
   height: 80%;
   width: 80%;
+}
+.news_title {
+  margin: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+.newsContent {
+  display: flex;
+  margin: 10px;
+}
+.newsContent .newsContent_img {
+  height: 80%;
+  width: 60%;
+}
+.newsContent .newsContent_img img {
+  width: 90%;
+}
+.newsContent .newsContent_discription {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.newsContent .newsContent_discription .newsContent_title {
+  font-size: 16px;
+  font-weight: bold;
+}
+.newsContent .newsContent_discription .newsContentFromTo {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: gray;
 }
