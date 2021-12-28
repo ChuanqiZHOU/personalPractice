@@ -17,8 +17,10 @@ import navi2Logo4 from "../../assets/images/nav-4.png";
 // 导入outlet 组件
 import { Outlet } from 'react-router-dom';
 
-// 导入Grid 栅格
-import {Grid} from 'antd-mobile'
+// 导入Grid 栅格 dropdown
+import { Grid} from 'antd-mobile'
+
+
 // 导航的数组
 const navs = [
   {
@@ -78,7 +80,36 @@ const RentGroups = () => {
 
   }
   
+const RentDropdown = (props) => {
+  
+  const navigate = useNavigate();
+  const currCityName = props.func();
+  return (
+    <div className="search-box">
+      <div className="search">
+        <div className="location" onClick={() => navigate("/cityList")}>
+          <span className="name" >{currCityName}</span>
+          <i className="iconfont icon-arrow"></i>
+        </div>
+        <div className="form" onClick={() => navigate("/search")}>
+          <i className="iconfont icon-seach"></i>
+          <span className="text">请输入小区地址</span>
+        </div>
+      </div>
+      <span>
+        <i
+          className="iconfont icon-map"
+          onClick={() => navigate("/map")}
+        ></i>
+      </span>
+    </div>
+  );
+}
 
+//H5获取定位信息
+// const realPosition = navigator.geolocation.getCurrentPosition(position => {
+//   console.log(position)
+// })
 
 export default class Home extends React.Component {
   state = {
@@ -88,7 +119,9 @@ export default class Home extends React.Component {
     //添加groups租房小组数据
     groups: [],
     // 添加最新资讯
-    news: []
+    news: [],
+    // 当前城市
+    currentCityName:'上海'
   }
 
   // get the data to swipers
@@ -120,7 +153,7 @@ export default class Home extends React.Component {
     const res = await axios.get(
       "http://localhost:8080/home/news?area=AREA%7C88cff55c-aaa4-e2e0"
     );
-    console.log(res);
+    // console.log(res);
     this.setState({
       news: res.data.body
     })
@@ -131,6 +164,18 @@ export default class Home extends React.Component {
   this.getSwipers();
     this.getGroups();
     this.getNews();
+    
+    //通过IP获取当前城市名称
+    const currentCity = new window.BMap.LocalCity();
+    currentCity.get(async res => {
+      // console.log(res)
+      const result = await axios.get(`http://localhost:8080/area/info?name=${res.name}`);
+      // console.log(result);
+      this.setState({
+        currentCityName: result.data.body.label
+      })
+    })
+
   }
 
   renderSwipers() {
@@ -188,7 +233,7 @@ export default class Home extends React.Component {
             ""
           )}
           <div className="navi_top">
-            <span>hahah</span>
+            <RentDropdown func={() => (this.state.currentCityName )}></RentDropdown>
           </div>
         </div>
         <Navi2></Navi2>
@@ -197,9 +242,7 @@ export default class Home extends React.Component {
           {this.renderGroups()}
         </Grid>
         <div className="news_title">最新资讯</div>
-        <div>
-          {this.renderNews()}
-        </div>
+        <div>{this.renderNews()}</div>
       </div>
     );
   }

@@ -19,6 +19,8 @@ import Home from './pages/Home';
 import FindHouse from "./pages/FindHouse";
 import News from './pages/News';
 import MyProfile from './pages/MyProfile';
+import CityList from './pages/CityList';
+import Map from "./pages/Map";
 
 // 导入TabBar
 import { FC } from "react";
@@ -81,11 +83,13 @@ function App() {
         <div className="appbody">
           <Routes>
             {/* <Route path="/" element={<Home></Home>}></Route> */}
-            <Route path="/" element={<Navigate to ="/home"></Navigate>}></Route>
+            <Route path="/" element={<Navigate to="/home"></Navigate>}></Route>
             <Route path="/home" element={<Home></Home>}></Route>
             <Route path="/news" element={<News></News>}></Route>
             <Route path="/find" element={<FindHouse></FindHouse>}></Route>
             <Route path="/myprofile" element={<MyProfile></MyProfile>}></Route>
+            <Route path="/citylist" element={<CityList></CityList>}></Route>
+            <Route path="/map" element={<Map></Map>}></Route>
           </Routes>
         </div>
         <div className="appbottom">
