@@ -3,7 +3,9 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import './cssForTabBar.css'
 import App from './App';
-import {BrowserRouter } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
+//import react-virtualized
+import 'react-virtualized/styles.css'
 
 
 ReactDOM.render(

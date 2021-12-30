@@ -20,6 +20,8 @@ import { Outlet } from 'react-router-dom';
 // 导入Grid 栅格 dropdown
 import { Grid} from 'antd-mobile'
 
+//导入 utils中定位城市的方法
+import {getCurrentCity} from '../../utils'
 
 // 导航的数组
 const navs = [
@@ -121,7 +123,9 @@ export default class Home extends React.Component {
     // 添加最新资讯
     news: [],
     // 当前城市
-    currentCityName:'上海'
+    currentCityName: '上海',
+    //goback
+    // goback: null
   }
 
   // get the data to swipers
@@ -160,21 +164,27 @@ export default class Home extends React.Component {
   }
 
 
-  componentDidMount() {
+ async componentDidMount() {
   this.getSwipers();
     this.getGroups();
-    this.getNews();
+   this.getNews();
+   
     
     //通过IP获取当前城市名称
-    const currentCity = new window.BMap.LocalCity();
-    currentCity.get(async res => {
-      // console.log(res)
-      const result = await axios.get(`http://localhost:8080/area/info?name=${res.name}`);
-      // console.log(result);
-      this.setState({
-        currentCityName: result.data.body.label
-      })
+    // const currentCity = new window.BMap.LocalCity();
+    // currentCity.get(async res => {
+    //   // console.log(res)
+    //   const result = await axios.get(`http://localhost:8080/area/info?name=${res.name}`);
+    //   // console.log(result);
+    //   this.setState({
+    //     currentCityName: result.data.body.label
+    //   })
+    // })
+    const currentCity = await getCurrentCity();
+    this.setState({
+      currentCityName: currentCity.label
     })
+
 
   }
 
