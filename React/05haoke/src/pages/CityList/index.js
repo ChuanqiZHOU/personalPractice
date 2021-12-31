@@ -7,19 +7,19 @@ import axios from "axios";
 import { getCurrentCity } from '../../utils'
 //import react-virtualized
 import { List, AutoSizer } from "react-virtualized";
+import NavHeader from "../../components/NavHeader";
 
 
+// const NewNavBar = () => {
+//   const navigate = useNavigate();
+//   const handleClick = () => {
+//       navigate(-1);
+//   };
 
-const NewNavBar = () => {
-  const navigate = useNavigate();
-  const handleClick = () => {
-      navigate(-1);
-  };
-
-  return (
-     <NavBar className="citylist-title" onBack={handleClick}>城市列表</NavBar>
-  )
-}
+//   return (
+//      <NavBar className="citylist-title" onBack={handleClick}>城市列表</NavBar>
+//   )
+// }
 
 // 城市列表数据格式化方法
 // list 就是一个城市列表的数组
@@ -122,7 +122,7 @@ export default class CityList extends React.Component {
     //调用measureOnRows,实现精确跳转
 
     this.cityListComponent.current.measureAllRows();
-    console.log(this.state.goback)
+    //console.log(this.state.goback)
   }
 
 
@@ -172,9 +172,6 @@ export default class CityList extends React.Component {
        Toast.show({
          content: "没有数据",
          duration:500,
-         afterClose: () => {
-           console.log("after");
-         },
        });
       // console.log(this.state.goback)
       }
@@ -249,7 +246,8 @@ export default class CityList extends React.Component {
     return (
       <div className="citylist">
         {this.state.goback && <Navigate to="/home" />}
-        <NewNavBar></NewNavBar>
+        {/* <NewNavBar></NewNavBar> */}
+        <NavHeader>城市列表</NavHeader>
         <AutoSizer>
           {({ height, width }) => (
             <List

@@ -144,8 +144,17 @@
   font-size: 14px;
   color: gray;
 }
-.map,
-#container {
+.map {
+  height: 100%;
+  padding-top: 45px;
+}
+.map .citylist-title {
+  margin-top: -45px;
+  width: 100%;
+  z-index: 1;
+  background-color: #f6f5f6;
+}
+.map #container {
   height: 100%;
 }
 .citylist {

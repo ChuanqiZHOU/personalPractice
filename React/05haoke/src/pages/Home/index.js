@@ -41,7 +41,7 @@ const navs = [
     id: 3,
     img: navi2Logo3,
     title: "地图找房",
-    path: "/find",
+    path: "/map",
   },
   {
     id: 4,
