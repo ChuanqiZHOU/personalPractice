@@ -5,6 +5,8 @@ import NavHeader from "../../components/NavHeader";
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import { Toast, Loading } from 'antd-mobile'
+import { BASE_URL } from '../../utils/url.js'
+import { API } from "../../utils/api";
 
 export default class Map extends React.Component {
 
@@ -139,7 +141,7 @@ export default class Map extends React.Component {
       duration: 0,
     });
 
-    const res = await axios.get(`http://localhost:8080/area/map?id=${id}`);
+    const res = await API.get(`/area/map?id=${id}`);
     // console.log(res)
     //数据加载完成，关闭Toast
     Toast.clear();
@@ -301,7 +303,7 @@ export default class Map extends React.Component {
         duration: 0,
       });
 
-      const res = await axios.get(`http://localhost:8080/houses?cityId=${id}`);
+      const res = await API.get(`/houses?cityId=${id}`);
 
       //关闭toast loading
       Toast.clear();
@@ -323,7 +325,7 @@ export default class Map extends React.Component {
                 <div className={styles.imgWrap}>
                   <img
                     className={styles.img}
-                    src={`http://localhost:8080${item.houseImg}`}
+                    src={BASE_URL + item.houseImg}
                     alt=""
                   />
                 </div>

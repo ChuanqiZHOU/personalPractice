@@ -1,0 +1,8 @@
+.navi_top {
+  display: flex;
+  z-index: 2;
+  margin-top: 49px;
+}
+.navi_top .icon-map {
+  color: green;
+}

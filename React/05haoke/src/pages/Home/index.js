@@ -5,6 +5,11 @@ import{useNavigate} from 'react-router-dom'
 import { Swiper } from "antd-mobile";
 import styles from "./swipersNavi2GroupsNews.css";
 import axios from 'axios'
+//导入 环境变量
+import { BASE_URL } from "../../utils/url";
+
+//引入SearchHeader组件
+import SearchHeader from "../../components/SearchHeader"
 //导入navi2 item logo
 import navi2Logo1 from '../../assets/images/nav-1.png'
 import navi2Logo2 from "../../assets/images/nav-2.png";
@@ -82,31 +87,7 @@ const RentGroups = () => {
 
   }
   
-const RentDropdown = (props) => {
-  
-  const navigate = useNavigate();
-  const currCityName = props.func();
-  return (
-    <div className="search-box">
-      <div className="search">
-        <div className="location" onClick={() => navigate("/cityList")}>
-          <span className="name" >{currCityName}</span>
-          <i className="iconfont icon-arrow"></i>
-        </div>
-        <div className="form" onClick={() => navigate("/search")}>
-          <i className="iconfont icon-seach"></i>
-          <span className="text">请输入小区地址</span>
-        </div>
-      </div>
-      <span>
-        <i
-          className="iconfont icon-map"
-          onClick={() => navigate("/map")}
-        ></i>
-      </span>
-    </div>
-  );
-}
+
 
 //H5获取定位信息
 // const realPosition = navigator.geolocation.getCurrentPosition(position => {
@@ -191,7 +172,7 @@ export default class Home extends React.Component {
   renderSwipers() {
     return this.state.swipers.map(item => (
   <Swiper.Item key={item.id}>
-   <img className='imgProps' src={`http://localhost:8080${item.imgSrc}`} alt="" />
+   <img className='imgProps' src={ BASE_URL + item.imgSrc} alt="" />
   </Swiper.Item>
 ));
   }
@@ -243,7 +224,7 @@ export default class Home extends React.Component {
             ""
           )}
           <div className="navi_top">
-            <RentDropdown func={() => (this.state.currentCityName )}></RentDropdown>
+            <SearchHeader func={() => (this.state.currentCityName )}></SearchHeader>
           </div>
         </div>
         <Navi2></Navi2>

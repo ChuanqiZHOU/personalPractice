@@ -5,6 +5,7 @@ import './cssForTabBar.css'
 import { BrowserRouter } from 'react-router-dom'
 //import react-virtualized
 import 'react-virtualized/styles.css'
+import './utils/url.js'
 import App from './App';
 
 

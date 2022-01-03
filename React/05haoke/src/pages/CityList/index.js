@@ -100,6 +100,14 @@ const formatCityIndex = (letter) => {
 // 有房源城市
 const house_city = ['北京', '上海', '广州', '深圳'];
 
+//goback 
+  const NaviGoBack = () => {
+    const navigate = useNavigate();
+    return (
+      navigate(-1)
+    )
+  }
+
 export default class CityList extends React.Component {
   constructor(props) {
     super(props);
@@ -114,7 +122,6 @@ export default class CityList extends React.Component {
     // 创建ref对象
      this.cityListComponent = React.createRef();
   }
-  
   
   async componentDidMount() {
     await this.getCityList()
@@ -241,11 +248,10 @@ export default class CityList extends React.Component {
 }
 
 
-
   render() {
     return (
       <div className="citylist">
-        {this.state.goback && <Navigate to="/home" />}
+        {this.state.goback && <Navigate to={-1}/>}
         {/* <NewNavBar></NewNavBar> */}
         <NavHeader>城市列表</NavHeader>
         <AutoSizer>
