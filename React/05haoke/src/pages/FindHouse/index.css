@@ -2,7 +2,16 @@
   display: flex;
   z-index: 2;
   margin-top: 49px;
+  align-items: center;
+  justify-content: center;
+}
+.navi_top .search-box {
+  padding-left: 0;
 }
 .navi_top .icon-map {
   color: green;
+}
+.navi_top .icon-back {
+  font-size: 15px;
+  margin-left: 10px;
 }

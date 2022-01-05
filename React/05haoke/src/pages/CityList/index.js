@@ -111,6 +111,7 @@ const house_city = ['北京', '上海', '广州', '深圳'];
 export default class CityList extends React.Component {
   constructor(props) {
     super(props);
+   
     this.state = {
     cityList: {},
     cityIndex: [],
