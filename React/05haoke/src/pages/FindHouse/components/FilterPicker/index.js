@@ -1,21 +1,31 @@
 import React from "react";
+import { useState } from 'react'
 
-import {PickerView} from 'antd-mobile'
+import { CascadePickerView, Picker} from 'antd-mobile'
 
 import FilterFooter from '../../../../components/FilterFooter';
 
-const province = [
 
-]
-export default function FilterPicker() {
-  return (
-    <>
-      {/* 选择器组件 */}
-      <PickerView data={province} value={null} cols={3}></PickerView>;
-      
+export default function FilterPicker({onCancel, onSave, data, type, defaultValues}) {
+  const [value, setValue] = useState(defaultValues)
+  //console.log(value)
+ 
+      return (
+            <>
+            {/* 选择器组件 */}
+            <CascadePickerView
+            options={data}
+            value={value}
+             onChange={(val) => {
+               setValue(val);
+               console.log('onChange', val)
+             }}
+            />
 
-      {/* 底部按钮 */}
-      <FilterFooter></FilterFooter>
-    </>
-  )
+              {/* 底部按钮 */}
+          <FilterFooter onCancel={() => onCancel()}
+            onOK={() => onSave(type, value)}></FilterFooter>
+            </>
+           )
+    
 }

@@ -29,7 +29,7 @@ export default class FindHouse extends React.Component {
     this.setState({
       currentCityName: currentCity.label,
     });
-    console.log(this.state.goback)
+    //console.log(this.state.goback)
   }
 
   render() {

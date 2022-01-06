@@ -7,3 +7,8 @@
 .selected {
     color: rgb(128, 0, 6);
 }
+
+.dropdown {
+    display: flex;
+    align-items: center;
+}

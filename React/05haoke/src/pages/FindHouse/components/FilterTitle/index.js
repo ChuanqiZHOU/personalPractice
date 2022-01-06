@@ -9,19 +9,25 @@ const titleList = [
   { title: '筛选', type: 'more' }]
   
   // 可以采用解构的方式导入props
-export default function FilterTitle({tss, titleClick}) {
- // console.log(titleClick);
-  const tss1 = tss;
-  console.log(tss)
+export default function FilterTitle(props) {
+  const { titleClick } = props;
+  //console.log(props.tss)
   return (
     <div className={styles.root}>
       {
         titleList.map(item => {
-          const isSelected = tss[item.type];
-          console.log(item.type)
+          //console.log(item.type);
+          //console.log(item);
+          //console.log(props.tss);
         
+          const isSelected = props.tss[item.type];
+            // props.tss[item.type];
+          //console.log(isSelected);
+          
           return (
-            <div className={styles.titleItem} key={item.type} onClick={() => titleClick(item.type)}>
+            <div className={styles.titleItem} key={item.type}
+               onClick={() => titleClick(item.type)}
+            >
               {/* 选中类名：selected */}
               <span className={[styles.dropdown, isSelected ?styles.selected : ''].join(' ')}>
                 <span>{ item.title}</span>

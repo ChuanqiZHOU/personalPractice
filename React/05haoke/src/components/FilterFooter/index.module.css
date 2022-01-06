@@ -1,4 +1,6 @@
 .root {
+    display: flex;
+    justify-content: space-around;
     margin-top: 20px;
     border-top: 1px solid #e9e9e9;
 }
