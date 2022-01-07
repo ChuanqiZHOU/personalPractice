@@ -1,0 +1,49 @@
+.root {
+    height: 100%;
+}
+
+.dl {
+    height: 100%
+}
+
+.tags {
+    display: flex;
+    justify-content: flex-end;
+    margin-left: 25%;
+    width: 75%;
+    height: 100%vh;
+    z-index: 3;
+}
+
+.dt {
+    display: flex;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 10px auto
+}
+
+.dd {
+    display: flex;
+    /* height: 100px; */
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 12px;
+    border-bottom: 1px solid green;
+}
+
+.tage {
+    display: flex;
+    height: 30px;
+    width: 65px;
+    border: 1px solid rgb(31, 28, 28);
+    border-radius: 5px;
+    line-height: 30px;
+    justify-content: center;
+    background-color: pink;
+    margin: 5px;
+}
+
+.tagActive {
+    background-color: greenyellow;
+}

@@ -18,12 +18,12 @@ export default function FilterPicker({onCancel, onSave, data, type, defaultValue
             value={value}
              onChange={(val) => {
                setValue(val);
-               console.log('onChange', val)
+              // console.log('onChange', val)
              }}
             />
 
               {/* 底部按钮 */}
-          <FilterFooter onCancel={() => onCancel()}
+          <FilterFooter onCancel={onCancel}
             onOK={() => onSave(type, value)}></FilterFooter>
             </>
            )

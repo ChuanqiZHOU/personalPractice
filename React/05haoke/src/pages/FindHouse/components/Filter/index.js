@@ -12,26 +12,75 @@ import styles from './index.module.css'
 
 //标题高亮状态
 //true 高亮， false 不高亮
-const titleSelectStatus = {area:false, mode: false, price: false, more: false};
+const titleSelectStatus = { area: false, mode: false, price: false, more: false };
+
+// 创建newTittleSelectedStatus
+const newTittleSelectedStatus = { ...titleSelectStatus }
   
+// 设置FilterPicker和FilterMore默认筛选条件选中值
+  const selectedValues = {
+    area: ['area', 'null'],
+    mode: ['null'],
+    price: ['null'],
+    more: [],
+}
+ 
 export default function Filter() {
   const [tss, setTss] = useState(titleSelectStatus)
   const [openType, setOpenType] = useState(' ')
   const [filterData, setFilterData] = useState({})
+  
+  // 默认选项值存入 state
+  const [sv, setSv] = useState({ selectedValues })
+
   // 点击标题菜单
   const onTitleClick = (type) => {
-    setTss({
-      ...tss,
-      [type]: true,
+    
+    //遍历titleSelectedStatus
+    //Object.keys() => [price,mode,area,more]
+    Object.keys(titleSelectStatus).forEach(item => {
+      //当item下 已选中的项目值
+      const selectedVal = selectedValues[item];
+      //key表示数组中的每一项；
+      if (item === type) {
+        newTittleSelectedStatus[item] = true
+      } else if (
+        item === 'area' &&
+        (selectedVal.length !== 2 || selectedVal[0] !== 'area')
+      ) {
+        //高亮
+        newTittleSelectedStatus[item] = true
+      } else if (item === 'mode' && selectedVal[0] !== 'null') {
+        newTittleSelectedStatus[item] = true
+      } else if (item === 'price' && selectedVal[0] !== 'null') {
+        newTittleSelectedStatus[item] = true
+      } else {
+         newTittleSelectedStatus[item] = false
+      }
     })
+
+    //console.log(newTittleSelectedStatus);
+    setTss(newTittleSelectedStatus);
+    // setTss({
+    //   ...tss,
+    //   [type]: true,
+    // })
     setOpenType(type)
   }
-  //console.log(tss)
+ 
 
   useEffect(() => {
+    let flag = true;
+    if(flag === true) {
     getFilterData()
     // console.log(filterData)
-  })
+    }
+    return () => {
+      flag = false
+    }
+  }, [])
+
+
 
   // 封装获取所有筛选方法
 
@@ -61,23 +110,15 @@ export default function Filter() {
     })
   }
 
-  // 标题高亮状态
-  const titleSelectedStatus = {
-    area: false,
-    mode: false,
-    price: false,
-    more: false
-  }
-  // 设置FilterPicker和FilterMore默认筛选条件选中值
-  const selectedValues = {
-    area: ['area', 'null'],
-    mode: ['null'],
-    price: ['null'],
-    more: [],
-  }
+  // // 标题高亮状态
+  // const titleSelectedStatus = {
+  //   area: false,
+  //   mode: false,
+  //   price: false,
+  //   more: false
+  // }
 
-  // 默认选项值存入 state
-  const [sv, setSv] = useState({ selectedValues })
+  
 
   // 渲染FilterPicker的方法
   const renderFilterPicker = () => {
@@ -108,7 +149,7 @@ export default function Filter() {
 
     return (
       <FilterPicker
-        key= {openType}
+        key={openType}
         onCancel={() => onCancel()}
         onSave={(type, value) => onSave(type, value)}
         data={data}
@@ -117,6 +158,39 @@ export default function Filter() {
       ></FilterPicker>
     )
   }
+
+  //render FilterMore
+  const renderFilterMore = () => {
+          //将数据从filterData中解构出来，并利用data传递给FilterMore组件
+    const { roomType, oriented, floor, characteristic } = filterData;
+    const data = {
+      roomType,
+      oriented,
+      floor,
+      characteristic,
+    }
+    
+    if (openType !== 'more') {
+      return null
+    }
+
+    //FilterMore中默认选中值
+    const defaultValues = sv.more;
+    
+    return (
+      <FilterMore
+        key={openType}
+        onCancel1={() => onCancel()}
+        onSave={(type, value) => onSave(type, value)}
+        data={data}
+        type={openType}
+        defaultValues={defaultValues}
+      ></FilterMore>
+    )
+  }
+
+
+
 
   return (
     <div className={styles.root}>
@@ -132,9 +206,10 @@ export default function Filter() {
 
         {/* 前三个菜单对应的内容 */}
         {renderFilterPicker()}
-        {/* 最后一个菜单对应的内容
-                <FilterMore></FilterMore>
-                 */}
+
+        {/* 最后一个菜单对应的内容*/}
+        {renderFilterMore()}
+                 
       </div>
     </div>
   )
