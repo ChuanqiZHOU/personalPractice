@@ -1,6 +1,6 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import { NavBar, Toast} from "antd-mobile";
+//import ReactDOM from "react-dom";
+import {  Toast} from "antd-mobile";
 import { Navigate, useNavigate } from "react-router-dom";
 import axios from "axios";
 //导入 utils中定位城市的方法
@@ -199,7 +199,7 @@ export default class CityList extends React.Component {
     const { cityIndex,cityList } = this.state;
     const letter = cityIndex[index];
     //console.log(letter);
-
+    
     // 获取指定索引下的citylist
     // cityList[letter]；
    // console.log(cityList[letter])

@@ -3,14 +3,14 @@
 import './cssForTabBar.css';
 // 导入路由
 import {
-  BrowserRouter,
+ 
   useNavigate,
   useLocation,
-  MemoryRouter as Router,
+  
   Routes,
   Route,
-  Link,
-  Redirect,
+ 
+  
   Navigate
 } from "react-router-dom";
 
@@ -24,7 +24,7 @@ import Map from "./pages/Map";
 
 // 导入TabBar
 import { FC } from "react";
-import { NavBar, TabBar } from "antd-mobile";
+import { TabBar } from "antd-mobile";
 
 
 

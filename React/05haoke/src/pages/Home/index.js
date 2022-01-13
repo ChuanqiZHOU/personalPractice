@@ -138,10 +138,11 @@ export default class Home extends React.Component {
     const res = await axios.get(
       "http://localhost:8080/home/news?area=AREA%7C88cff55c-aaa4-e2e0"
     );
-    // console.log(res);
+   // console.log(res);
     this.setState({
       news: res.data.body
     })
+   // console.log(this.state.news)
   }
 
 
@@ -162,13 +163,11 @@ export default class Home extends React.Component {
     //   })
     // })
     const currentCity = await getCurrentCity();
-    this.setState({
-      currentCityName: currentCity.label
-    })
-
-
+   this.setState({
+     currentCityName: currentCity.label
+   });
   }
-
+ 
   renderSwipers() {
     return this.state.swipers.map(item => (
   <Swiper.Item key={item.id}>

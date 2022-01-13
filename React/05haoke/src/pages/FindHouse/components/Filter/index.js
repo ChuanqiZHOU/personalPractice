@@ -1,5 +1,6 @@
 import React from "react";
-import {useState, useEffect}from 'react'
+import { useState, useEffect } from 'react'
+import {Spring} from 'react-spring'
 
 import FilterTitle from "../FilterTitle";
 import FilterPicker from "../FilterPicker";
@@ -9,6 +10,7 @@ import FilterMore from "../FilterMore";
 import { API } from "../../../../utils/api";
 
 import styles from './index.module.css'
+import { convertStringArrayToDate } from "antd-mobile/es/components/date-picker/date-picker-date-utils";
 
 //标题高亮状态
 //true 高亮， false 不高亮
@@ -16,37 +18,42 @@ const titleSelectStatus = { area: false, mode: false, price: false, more: false 
 
 // 创建newTittleSelectedStatus
 const newTittleSelectedStatus = { ...titleSelectStatus }
+
   
 // 设置FilterPicker和FilterMore默认筛选条件选中值
   const selectedValues = {
     area: ['area', 'null'],
     mode: ['null'],
-    price: ['null'],
+    price: ['null'], 
     more: [],
 }
  
-export default function Filter() {
+export default function Filter(props) {
   const [tss, setTss] = useState(titleSelectStatus)
   const [openType, setOpenType] = useState(' ')
   const [filterData, setFilterData] = useState({})
-  
-  // 默认选项值存入 state
-  const [sv, setSv] = useState({ selectedValues })
 
+  // 默认选项值存入 state
+  const [sv, setSv] = useState(selectedValues)
+  
   // 点击标题菜单
   const onTitleClick = (type) => {
-    
     //遍历titleSelectedStatus
     //Object.keys() => [price,mode,area,more]
-    Object.keys(titleSelectStatus).forEach(item => {
-      //当item下 已选中的项目值
-      const selectedVal = selectedValues[item];
+    Object.keys(titleSelectStatus).forEach((item) => {
       //key表示数组中的每一项；
       if (item === type) {
+        // 当前标题的选中状态
         newTittleSelectedStatus[item] = true
-      } else if (
+        return
+      }
+      // 其他标题
+      //当item下 已选中的项目值
+      const selectedVal = sv[item]
+      //console.log(selectedVal);
+      if (
         item === 'area' &&
-        (selectedVal.length !== 2 || selectedVal[0] !== 'area')
+        (selectedVal[1] !== 'null' || selectedVal[0] !== 'area')
       ) {
         //高亮
         newTittleSelectedStatus[item] = true
@@ -54,33 +61,34 @@ export default function Filter() {
         newTittleSelectedStatus[item] = true
       } else if (item === 'price' && selectedVal[0] !== 'null') {
         newTittleSelectedStatus[item] = true
+      } else if (item === 'more' && selectedVal.length !== 0) {
+        newTittleSelectedStatus[item] = true
       } else {
-         newTittleSelectedStatus[item] = false
+        newTittleSelectedStatus[item] = false
       }
     })
 
-    //console.log(newTittleSelectedStatus);
-    setTss(newTittleSelectedStatus);
+    // console.log(newTittleSelectedStatus);
+    setTss(newTittleSelectedStatus)
     // setTss({
     //   ...tss,
     //   [type]: true,
     // })
+    //通过点击，将当前type设置为openType, 这样当点击的时候，就会显示FilterPicker组件
     setOpenType(type)
   }
- 
 
   useEffect(() => {
-    let flag = true;
-    if(flag === true) {
+    // let flag = true;
+    // if(flag === true) {
+    // getFilterData()
+    // // console.log(filterData)
+    // }
+    // return () => {
+    //   flag = false
+    // }
     getFilterData()
-    // console.log(filterData)
-    }
-    return () => {
-      flag = false
-    }
   }, [])
-
-
 
   // 封装获取所有筛选方法
 
@@ -95,30 +103,112 @@ export default function Filter() {
   }
 
   // 取消按钮的方法
-  const onCancel = () => {
+    const onCancel = (type) => {
+    //菜单高亮逻辑处理
+    // 此处没有value值，所以要根据type去sv中找到选中值
+    const selectedVal = sv[type]
+    //console.log(selectedVal)
+    //console.log(selectedVal.length)
+    if (
+      type === 'area' &&
+      (selectedVal[1] !== 'null' || selectedVal[0] !== 'area')
+    ) {
+      //高亮
+      newTittleSelectedStatus[type] = true
+    } else if (type === 'mode' && selectedVal[0] !== 'null') {
+      newTittleSelectedStatus[type] = true
+    } else if (type === 'price' && selectedVal[0] !== 'null') {
+      newTittleSelectedStatus[type] = true
+    } else if (type === 'more' && selectedVal.length !== 0) {
+      newTittleSelectedStatus[type] = true
+    } else {
+      newTittleSelectedStatus[type] = false
+    }
+
     setOpenType(' ')
+    // console.log(type)
+
+    //更新titleSelectedStatus
+    setTss(newTittleSelectedStatus)
   }
 
   // 确定按钮的方法
   const onSave = (type, value) => {
-    console.log(type, value)
+    //菜单高亮逻辑处理
+    const selectedVal = value
+    //console.log(selectedVal);
+    //console.log(selectedVal.length);
+    if (
+      type === 'area' &&
+      (selectedVal[1] !== 'null' || selectedVal[0] !== 'area')
+    ) {
+      //高亮
+      newTittleSelectedStatus[type] = true
+    } else if (type === 'mode' && selectedVal[0] !== 'null') {
+      newTittleSelectedStatus[type] = true
+    } else if (type === 'price' && selectedVal[0] !== 'null') {
+      newTittleSelectedStatus[type] = true
+    } else if (type === 'more' && selectedVal.length !== 0) {
+      newTittleSelectedStatus[type] = true
+    } else {
+      newTittleSelectedStatus[type] = false
+    }
+    // 当点击时，将openType设置为空，隐藏对话框
     setOpenType(' ')
-    // 更新sv
+
+    //更新titleSelectedStatus
+    setTss(newTittleSelectedStatus)
+    //当onSave被点击时候，会将value写入sv，此时，selectedvalues就会赋值给FilterPicker
     setSv({
       ...sv,
       [type]: value,
     })
-  }
-
-  // // 标题高亮状态
-  // const titleSelectedStatus = {
-  //   area: false,
-  //   mode: false,
-  //   price: false,
-  //   more: false
-  // }
+    
+    const thisTimeout=   setTimeout(() => {
+        document.querySelector('.appbody').scrollTo(0, 0)
+      })
+    
+  };
 
   
+    
+  
+    
+  
+
+  // 筛选条件数据
+
+  const { area, mode, price, more } = sv
+  const filter = {}
+  
+  // //筛选区域
+  // let newArea0 = JSON.stringify(area);
+  // let newArea = JSON.parse(newArea0);
+  const areaKey = area[0]
+  let areaValue = ''  
+  if (area[3] !== 'null') {
+     areaValue = area[3]
+   }
+  if (area[3] === 'null' && area[2] !== 'null') {
+     areaValue = area[2]
+  }
+  if (area[2] ==='null') {
+    areaValue = area[1];
+  }
+  filter[areaKey] = areaValue
+  
+  // // 方式和租金
+   filter.mode = mode[0]
+  filter.price = price[0]
+  
+  // // 更多 筛选条件
+  filter.more = more.join(',')
+
+  //console.log(filter)
+  //console.log(sv)
+
+  // 调用FindHouse中的onFilter方法，将filter数据传到FindHouse
+  props.onFilter(filter)
 
   // 渲染FilterPicker的方法
   const renderFilterPicker = () => {
@@ -150,7 +240,7 @@ export default function Filter() {
     return (
       <FilterPicker
         key={openType}
-        onCancel={() => onCancel()}
+        onCancel={(type) => onCancel(type)}
         onSave={(type, value) => onSave(type, value)}
         data={data}
         type={openType}
@@ -161,26 +251,26 @@ export default function Filter() {
 
   //render FilterMore
   const renderFilterMore = () => {
-          //将数据从filterData中解构出来，并利用data传递给FilterMore组件
-    const { roomType, oriented, floor, characteristic } = filterData;
+    if (openType !== 'more') {
+      return null
+    }
+
+    //将数据从filterData中解构出来，并利用data传递给FilterMore组件
+    const { roomType, oriented, floor, characteristic } = filterData
     const data = {
       roomType,
       oriented,
       floor,
       characteristic,
     }
-    
-    if (openType !== 'more') {
-      return null
-    }
 
     //FilterMore中默认选中值
-    const defaultValues = sv.more;
-    
+    const defaultValues = sv.more
+
     return (
       <FilterMore
         key={openType}
-        onCancel1={() => onCancel()}
+        onCancel1={(type) => onCancel(type)}
         onSave={(type, value) => onSave(type, value)}
         data={data}
         type={openType}
@@ -189,15 +279,16 @@ export default function Filter() {
     )
   }
 
-
-
-
   return (
     <div className={styles.root}>
       {/*  前三个菜单的遮罩层 */}
 
       {openType === 'area' || openType === 'mode' || openType === 'price' ? (
-        <div className={styles.mask} onClick={() => onCancel()}></div>
+        <Spring from = {{opacity: 0}} to= {{opacity:1}}>
+          
+          {props => 
+          <div style={props} className={styles.mask} onClick={() => onCancel(openType)}></div>}
+        </Spring>
       ) : null}
 
       <div className={styles.content}>
@@ -209,7 +300,6 @@ export default function Filter() {
 
         {/* 最后一个菜单对应的内容*/}
         {renderFilterMore()}
-                 
       </div>
     </div>
   )
