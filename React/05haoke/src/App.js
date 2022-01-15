@@ -21,6 +21,7 @@ import News from './pages/News';
 import MyProfile from './pages/MyProfile';
 import CityList from './pages/CityList';
 import Map from "./pages/Map";
+import HouseDetail from './pages/HouseDetail';
 
 // 导入TabBar
 import { FC } from "react";
@@ -90,6 +91,7 @@ function App() {
             <Route path="/myprofile" element={<MyProfile></MyProfile>}></Route>
             <Route path="/citylist" element={<CityList></CityList>}></Route>
             <Route path="/map" element={<Map></Map>}></Route>
+            <Route path="/detail/:id" element={<HouseDetail></HouseDetail>}></Route>
           </Routes>
         </div>
         <div className="appbottom">

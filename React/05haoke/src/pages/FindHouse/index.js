@@ -15,9 +15,14 @@ import HouseItem from "../../components/HouseItem";
 import Sticky from "../../components/Sticky";
 import NoHouse from "../../components/NoHouse"
 
+
+let navigateAddress = '';
+
 export default class FindHouse extends React.Component {
   flag = false
   flag2 = true
+  
+
   constructor(props) {
     super(props)
     this.Mounted = false
@@ -34,6 +39,8 @@ export default class FindHouse extends React.Component {
     count: 0,
     //数据是否加载
     isloading: false,
+    //判断houseDetail 是否跳转
+    naviToHouseDetail: false
   }
 
   goBack() {
@@ -73,6 +80,7 @@ export default class FindHouse extends React.Component {
     this.Mounted = false
     this.flag = false
     this.flag2 = true
+    this.naviToHouseDetail = false;
     //
   }
 
@@ -119,8 +127,8 @@ export default class FindHouse extends React.Component {
     }
 
     // console.log(this.filters)
-  }
-
+  };
+  
   renderHouseList = ({
     key, // Unique key within array of rows
     index, // 索引号
@@ -132,6 +140,8 @@ export default class FindHouse extends React.Component {
     const { list, count } = this.state
     //console.log(list)
     const house = list[index]
+    navigateAddress = `/detail/${house.houseCode}`;
+    console.log(navigateAddress)
     //判断house是否存在，
     if (!house) {
       return (
@@ -139,17 +149,28 @@ export default class FindHouse extends React.Component {
           <p className="loading"></p>
         </div>
       )
-    }
+    };
     // console.log(house)
+      
+    const onClick = () => {
+      if (this.state.naviToHouseDetail === false) {
+        this.setState({
+          naviToHouseDetail:true
+        })
+      }
 
+    }
+      
     return (
       <div key={key} style={style}>
+        {/* {this.state.naviToHouseDetail && <Navigate to= {navigateAddress} />} */}
         <HouseItem
           src={BASE_URL + house.houseImg}
           title={house.title}
           desc={house.desc}
           tags={house.tags}
           price={house.price}
+          onClick={() => onClick()}
         ></HouseItem>
       </div>
     )
@@ -232,6 +253,7 @@ export default class FindHouse extends React.Component {
     return (
       <div className="root">
         {this.state.goback && <Navigate to={-1} />}
+        {this.state.naviToHouseDetail && <Navigate to={navigateAddress} />}
         <div className="navi_top">
           <i className="iconfont icon-back" onClick={() => this.goBack()}></i>
           <SearchHeader func={() => this.state.currentCityName}></SearchHeader>

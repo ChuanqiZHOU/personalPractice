@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from 'react'
-import {Spring} from 'react-spring'
+import {Spring} from 'react-spring/renderprops'
 
 import FilterTitle from "../FilterTitle";
 import FilterPicker from "../FilterPicker";
@@ -279,18 +279,29 @@ export default function Filter(props) {
     )
   }
 
+  const renderMask = () => {
+
+    const isHide =
+      openType === 'area' || openType === 'mode' || openType === 'price'
+    if (!isHide) {
+      return null
+    } else {
+      return (
+              <div
+                style={props}
+                className={styles.mask}
+                onClick={() => onCancel(openType)}
+              ></div>
+            )
+    }
+    
+  }
+
   return (
     <div className={styles.root}>
       {/*  前三个菜单的遮罩层 */}
 
-      {openType === 'area' || openType === 'mode' || openType === 'price' ? (
-        <Spring from = {{opacity: 0}} to= {{opacity:1}}>
-          
-          {props => 
-          <div style={props} className={styles.mask} onClick={() => onCancel(openType)}></div>}
-        </Spring>
-      ) : null}
-
+      {renderMask()}
       <div className={styles.content}>
         {/* 标题栏 */}
         <FilterTitle tss={tss} titleClick={(type) => onTitleClick(type)} />
