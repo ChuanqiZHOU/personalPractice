@@ -70,12 +70,6 @@ export default class FindHouse extends React.Component {
     // })
   }
 
-  componentDidUpdate() {
-    // this.Mounted && this.searchHouseList();
-    // this.Mounted = false;
-    // console.log(this.filters)
-  }
-
   componentWillUnmount() {
     this.Mounted = false
     this.flag = false

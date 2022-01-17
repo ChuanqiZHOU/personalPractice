@@ -79,15 +79,15 @@ export default function Filter(props) {
   }
 
   useEffect(() => {
-    // let flag = true;
-    // if(flag === true) {
-    // getFilterData()
-    // // console.log(filterData)
-    // }
-    // return () => {
-    //   flag = false
-    // }
+    let flag = true;
+    if(flag === true) {
     getFilterData()
+    // console.log(filterData)
+    }
+    return () => {
+      flag = false
+    }
+    //getFilterData()
   }, [])
 
   // 封装获取所有筛选方法
