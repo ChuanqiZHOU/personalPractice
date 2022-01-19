@@ -22,6 +22,7 @@ import MyProfile from './pages/MyProfile';
 import CityList from './pages/CityList';
 import Map from "./pages/Map";
 import HouseDetail from './pages/HouseDetail';
+import Login from './pages/Login';
 
 // 导入TabBar
 import { FC } from "react";
@@ -92,6 +93,7 @@ function App() {
             <Route path="/citylist" element={<CityList></CityList>}></Route>
             <Route path="/map" element={<Map></Map>}></Route>
             <Route path="/detail/:id" element={<HouseDetail></HouseDetail>}></Route>
+            <Route path='/login' element={<Login></Login>}></Route>
           </Routes>
         </div>
         <div className="appbottom">
