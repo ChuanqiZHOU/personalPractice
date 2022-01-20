@@ -21,7 +21,7 @@ let navigateAddress = '';
 export default class FindHouse extends React.Component {
   flag = false
   flag2 = true
-  
+  flag3= false
 
   constructor(props) {
     super(props)
@@ -40,7 +40,8 @@ export default class FindHouse extends React.Component {
     //数据是否加载
     isloading: false,
     //判断houseDetail 是否跳转
-    naviToHouseDetail: false
+    naviToHouseDetail: false,
+    navigateAddress: ''
   }
 
   goBack() {
@@ -71,10 +72,11 @@ export default class FindHouse extends React.Component {
   }
 
   componentWillUnmount() {
-    this.Mounted = false
-    this.flag = false
-    this.flag2 = true
-    this.naviToHouseDetail = false;
+    this.Mounted = false;
+    this.flag = false;
+    this.flag2 = true;
+    this.state.naviToHouseDetail = false;
+    this.flag3 = false
     //
   }
 
@@ -87,6 +89,8 @@ export default class FindHouse extends React.Component {
     this.flag2 = false
     //this.searchHouseList()
     this.flag = false
+
+    this.flag3= true
 
     
   }
@@ -134,8 +138,7 @@ export default class FindHouse extends React.Component {
     const { list, count } = this.state
     //console.log(list)
     const house = list[index]
-    navigateAddress = `/detail/${house.houseCode}`;
-    console.log(navigateAddress)
+     
     //判断house是否存在，
     if (!house) {
       return (
@@ -147,12 +150,18 @@ export default class FindHouse extends React.Component {
     // console.log(house)
       
     const onClick = () => {
+      const navigateAddress = `/detail/${house.houseCode}`;
+      //console.log(navigateAddress)
+      // this.setState({
+      //   navigateAddress
+      // })
       if (this.state.naviToHouseDetail === false) {
         this.setState({
+          navigateAddress,
           naviToHouseDetail:true
         })
       }
-
+    
     }
       
     return (
@@ -204,7 +213,7 @@ export default class FindHouse extends React.Component {
   //渲染列表数据
   renderList = () => {
     const { count } = this.state
-    console.log(this.flag2)
+    //console.log(this.flag2)
     if (count === 0 && !this.flag2) {
       return <NoHouse>没有找打房源</NoHouse>
     }
@@ -247,7 +256,7 @@ export default class FindHouse extends React.Component {
     return (
       <div className="root">
         {this.state.goback && <Navigate to={-1} />}
-        {this.state.naviToHouseDetail && <Navigate to={navigateAddress} />}
+        {this.state.naviToHouseDetail && <Navigate to={this.state.navigateAddress} />}
         <div className="navi_top">
           <i className="iconfont icon-back" onClick={() => this.goBack()}></i>
           <SearchHeader func={() => this.state.currentCityName}></SearchHeader>

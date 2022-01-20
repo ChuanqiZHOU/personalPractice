@@ -2,17 +2,18 @@ import React from 'react'
 import styles from './index.module.css'
 import NavHeader from '../../components/NavHeader'
 import { useState } from 'react/cjs/react.development'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation} from 'react-router-dom'
 import { API } from '../../utils'
 import axios from 'axios'
 import { Toast } from 'antd-mobile'
-
+import { Navigate } from 'react-router-dom'
 import { withFormik, Form, Field, ErrorMessage} from 'formik'
 import * as Yup from 'yup'
 function Login(props) {
     // const [userName, setUserName] = useState('');
     // const [password, setPassword] = useState('')
-    const navigate = useNavigate();
+  const navigate = useNavigate();
+  const location = useLocation();
     // const getUserName = (e) => {
     //     setUserName( e.target.value )
     //     //console.log(e.target.value)
@@ -37,11 +38,20 @@ function Login(props) {
     // }
     //通过props接收来自高阶组件withFormik的参数
     const { values, handleSubmit, handleChange, errors,touched,handleBlur } = props
-    console.log(errors, touched)
+  //console.log(errors, touched)
+  //console.log(location)
+  const from = location.state?.from?.pathname;
+  
     return (
       <div>
         <NavHeader>账号登录</NavHeader>
-        {values.status === 200 && navigate(-1)}
+        {/* {values.status === 200 && <renderNavi></renderNavi>} */}
+        { values.status === 200 && (
+      (!from) ?
+        <Navigate to={-1}></Navigate>
+      :
+      <Navigate to={from} replace></Navigate>)
+    }
         <Form>
           {/* <form onSubmit={handleSubmit}> */}
           {/* <input
@@ -104,7 +114,8 @@ Login = withFormik({
       username: username,
       password: password,
     })
-    const { status, description, body } = res.data
+    const { status, description, body } = res.data;
+  
     if (status === 200) {
       localStorage.setItem('hkzf_token', body.token)
       values.status = 200

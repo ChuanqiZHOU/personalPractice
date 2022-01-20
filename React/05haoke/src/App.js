@@ -6,11 +6,8 @@ import {
  
   useNavigate,
   useLocation,
-  
   Routes,
   Route,
- 
-  
   Navigate
 } from "react-router-dom";
 
@@ -28,7 +25,8 @@ import Login from './pages/Login';
 import { FC } from "react";
 import { TabBar } from "antd-mobile";
 
-
+// 导入RequireAuth组件进行路由鉴权
+import { RequireAuth } from './utils';
 
 const Bottom: FC = () => {
   const navigate = useNavigate();
@@ -91,7 +89,14 @@ function App() {
             <Route path="/find" element={<FindHouse></FindHouse>}></Route>
             <Route path="/myprofile" element={<MyProfile></MyProfile>}></Route>
             <Route path="/citylist" element={<CityList></CityList>}></Route>
-            <Route path="/map" element={<Map></Map>}></Route>
+            
+           <Route path="/map" element={
+                <RequireAuth>
+                <Map></Map>
+                </RequireAuth>    
+            }>
+            </Route>
+           
             <Route path="/detail/:id" element={<HouseDetail></HouseDetail>}></Route>
             <Route path='/login' element={<Login></Login>}></Route>
           </Routes>

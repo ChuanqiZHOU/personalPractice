@@ -79,15 +79,15 @@ export default function Filter(props) {
   }
 
   useEffect(() => {
-    let flag = true;
-    if(flag === true) {
+    // let flag = true;
+    // if(flag === true) {
+    // getFilterData()
+    // // console.log(filterData)
+    // }
+    // return () => {
+    //   flag = false
+    // }
     getFilterData()
-    // console.log(filterData)
-    }
-    return () => {
-      flag = false
-    }
-    //getFilterData()
   }, [])
 
   // 封装获取所有筛选方法
@@ -163,10 +163,11 @@ export default function Filter(props) {
       ...sv,
       [type]: value,
     })
-    
-    const thisTimeout=   setTimeout(() => {
-        document.querySelector('.appbody').scrollTo(0, 0)
-      })
+
+    const thisTimeout = setTimeout(() => {
+      document.querySelector('.appbody').scrollTo(0, 0)
+    })
+
     
   };
 
@@ -208,7 +209,10 @@ export default function Filter(props) {
   //console.log(sv)
 
   // 调用FindHouse中的onFilter方法，将filter数据传到FindHouse
-  props.onFilter(filter)
+  useEffect(() => {
+    props.onFilter(filter)
+  },[])
+  
 
   // 渲染FilterPicker的方法
   const renderFilterPicker = () => {
