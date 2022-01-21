@@ -19,7 +19,7 @@ API.interceptors.request.use(config => {
 
 //添加相应拦截器
 API.interceptors.response.use(response => {
-    console.log(response);
+    //console.log(response);
     const { status } = response.data;
     if (status === 400) {
         // 说明Token失效

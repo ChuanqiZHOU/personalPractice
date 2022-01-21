@@ -44,4 +44,6 @@ export * from './auth'
 
 export * from './authRoute'
 
+export * from './city'
+
 

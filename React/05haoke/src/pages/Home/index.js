@@ -52,7 +52,7 @@ const navs = [
     id: 4,
     img: navi2Logo4,
     title: "出租",
-    path: "/find",
+    path: "/rent/add",
   }
 ];
 // 渲染导航菜单
