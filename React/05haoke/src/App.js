@@ -27,7 +27,9 @@ import { TabBar } from "antd-mobile";
 
 // 导入RequireAuth组件进行路由鉴权
 import { RequireAuth } from './utils';
-
+import Rent from './pages/Rent';
+import Add from './pages/Rent/Add'
+import Search from './pages/Rent/Search';
 const Bottom: FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -99,6 +101,10 @@ function App() {
            
             <Route path="/detail/:id" element={<HouseDetail></HouseDetail>}></Route>
             <Route path='/login' element={<Login></Login>}></Route>
+            <Route exact path='/rent' element={<Rent></Rent>}/>
+            <Route exact path='/rent/add' element={<Add></Add>} />
+            <Route exact path='/rent/search' element={<Search></Search>}/>
+
           </Routes>
         </div>
         <div className="appbottom">
