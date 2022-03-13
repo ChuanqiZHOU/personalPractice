@@ -1,9 +1,10 @@
 const mongoose = require('mongoose');
 //导入config 模块
+//${config.get('db.user')}:${config.get('db.pwd')}@
 const config = require('config');
 mongoose
   .connect(
-    `mongodb://${config.get('db.user')}:${config.get('db.pwd')}@${config.get(
+    `mongodb://${config.get(
       'db.host'
     )}:${config.get('db.port')}/${config.get('db.name')}`
   )
