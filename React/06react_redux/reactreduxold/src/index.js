@@ -13,10 +13,4 @@ root.render(
 )
 // store.subscribe(()=>root.render(<App />))
 
-
-
-
-
-
-
 // ReactDOM.render(<App/>, document.getElementById('root'))
